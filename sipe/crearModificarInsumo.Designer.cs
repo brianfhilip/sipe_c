@@ -53,6 +53,7 @@
             this.cajaCodigo.Name = "cajaCodigo";
             this.cajaCodigo.Size = new System.Drawing.Size(117, 20);
             this.cajaCodigo.TabIndex = 2;
+            this.cajaCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cajaCodigo_KeyPress);
             this.cajaCodigo.Leave += new System.EventHandler(this.cajaCodigo_Leave);
             // 
             // cajaCosto
@@ -61,6 +62,8 @@
             this.cajaCosto.Name = "cajaCosto";
             this.cajaCosto.Size = new System.Drawing.Size(117, 20);
             this.cajaCosto.TabIndex = 3;
+            this.cajaCosto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cajaCosto_KeyPress);
+            this.cajaCosto.Leave += new System.EventHandler(this.cajaCosto_Leave);
             // 
             // cajaCantidad
             // 
@@ -68,6 +71,7 @@
             this.cajaCantidad.Name = "cajaCantidad";
             this.cajaCantidad.Size = new System.Drawing.Size(117, 20);
             this.cajaCantidad.TabIndex = 4;
+            this.cajaCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cajaCantidad_KeyPress);
             // 
             // cajaStock
             // 
@@ -75,6 +79,7 @@
             this.cajaStock.Name = "cajaStock";
             this.cajaStock.Size = new System.Drawing.Size(117, 20);
             this.cajaStock.TabIndex = 5;
+            this.cajaStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cajaStock_KeyPress);
             // 
             // cajaObservaciones
             // 
@@ -83,6 +88,8 @@
             this.cajaObservaciones.Size = new System.Drawing.Size(184, 213);
             this.cajaObservaciones.TabIndex = 8;
             this.cajaObservaciones.Text = "";
+            this.cajaObservaciones.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cajaObservaciones_KeyPress);
+            this.cajaObservaciones.Leave += new System.EventHandler(this.cajaObservaciones_Leave);
             // 
             // label1
             // 
@@ -155,6 +162,8 @@
             this.comboMedida.Size = new System.Drawing.Size(117, 21);
             this.comboMedida.TabIndex = 17;
             this.comboMedida.Text = "SELECCIONAR";
+            this.comboMedida.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboMedida_KeyPress);
+            this.comboMedida.Leave += new System.EventHandler(this.comboMedida_Leave);
             // 
             // cajaNombre
             // 
@@ -162,6 +171,8 @@
             this.cajaNombre.Name = "cajaNombre";
             this.cajaNombre.Size = new System.Drawing.Size(117, 20);
             this.cajaNombre.TabIndex = 18;
+            this.cajaNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cajaNombre_KeyPress);
+            this.cajaNombre.Leave += new System.EventHandler(this.cajaNombre_Leave);
             // 
             // btnGuardar
             // 

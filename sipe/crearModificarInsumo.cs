@@ -102,7 +102,8 @@ namespace sipe
                     cajaCodigo.BackColor = Color.Empty;
                 }
             }
-            } 
+            }
+           
 
         }
 
@@ -111,6 +112,88 @@ namespace sipe
             recetas objRecetas = new recetas();
             objRecetas.MdiParent = this.MdiParent;
             objRecetas.Show();
+        }
+
+        private void cajaNombre_Leave(object sender, EventArgs e)
+        {
+            cajaCosto.Focus();
+        }
+
+        private void cajaCosto_Leave(object sender, EventArgs e)
+        {
+            comboMedida.Focus();
+        }
+
+        private void comboMedida_Leave(object sender, EventArgs e)
+        {
+            cajaCantidad.Focus();
+        }
+
+        private void cajaObservaciones_Leave(object sender, EventArgs e)
+        {
+            btnGuardar.Focus();
+        }
+
+        private void cajaCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar ==(int)Keys.Enter)
+            {
+                cajaNombre.Focus();
+            }
+        }
+
+        private void cajaNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (int)Keys.Enter)
+            {
+                cajaCosto.Focus();
+            }
+        }
+
+        private void comboMedida_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (int)Keys.Enter)
+            {
+                cajaCantidad.Focus();
+            }
+        }
+
+        private void cajaCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (int)Keys.Enter)
+            {
+                cajaStock.Focus();
+            }
+        }
+
+        private void cajaStock_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (int)Keys.Enter)
+            {
+                cajaObservaciones.Focus();
+            }
+        }
+
+        private void cajaCosto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (int)Keys.Enter)
+            {
+                comboMedida.Focus();
+            }
+        }
+
+        private void cajaObservaciones_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (int)Keys.Enter)
+            {
+                if (btnGuardar.Enabled==false)
+                {
+                    btnActualiar.Focus();
+                }else
+                {
+                    btnGuardar.Focus();
+                }
+            }
         }
     }
 }
