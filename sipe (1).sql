@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-11-2018 a las 22:14:51
+-- Tiempo de generación: 19-11-2018 a las 23:39:36
 -- Versión del servidor: 10.1.34-MariaDB
 -- Versión de PHP: 7.2.7
 
@@ -103,6 +103,9 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `autoCompletar` ()  select idCliente
 CREATE DEFINER=`root`@`localhost` PROCEDURE `autoCompletarProductoVenta` ()  select NombreProductoMarca from productos_marcas$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `autocompletar_nombre_productos_marca` ()  SELECT NombreProductoMarca from productos_marcas$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `autocompletar_productos` (IN `busq` VARCHAR(60))  NO SQL
+SELECT concat(idInsumo,"-",nombreInsumo) FROM insumos WHERE idInsumo like concat("%",busq,"%") OR nombreInsumo like concat("%",busq,"%")$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `buscarCliente` (IN `id` VARCHAR(15))  BEGIN
 
@@ -1250,8 +1253,7 @@ INSERT INTO `insumos` (`idInsumo`, `nombreInsumo`, `costoInsumo`, `cantidadInsum
 ('1110', 'MASA', 800, 2136, 2000, '1', 'SI', 'MASA'),
 ('1111', 'TOMATE', 500, 0, 2, '1', '', 'TOMATE'),
 ('12345', 'AREPA YUCA ', 2000, 15, 0, '2', 'NO', 'SDFSSSDF'),
-('34', 'Arroz', 1200, 34, 0, '1', 'NO', ''),
-('6666', 'Apio', 200, 5, 2, '1', '', '');
+('34', 'Arroz', 1200, 34, 0, '1', 'NO', '');
 
 -- --------------------------------------------------------
 
