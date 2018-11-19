@@ -1,6 +1,6 @@
 ﻿namespace sipe
 {
-    partial class Facturacion
+    partial class Ventas
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -204,7 +204,7 @@
             this.label5.TabIndex = 16;
             this.label5.Text = "Tipo de pago";
             // 
-            // Facturacion
+            // Ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -226,7 +226,7 @@
             this.Controls.Add(this.lblVendedor);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.lblVenta);
-            this.Name = "Facturacion";
+            this.Name = "Ventas";
             this.Text = "Facturacion";
             this.Load += new System.EventHandler(this.Facturacion_Load);
             this.ResumeLayout(false);

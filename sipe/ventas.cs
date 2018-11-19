@@ -11,11 +11,11 @@ using MySql.Data.MySqlClient;
 
 namespace sipe
 {
-    public partial class Facturacion : Form
+    public partial class Ventas : Form
     {
 
 
-        public Facturacion()
+        public Ventas()
         {
             InitializeComponent();
 

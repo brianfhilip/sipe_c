@@ -63,11 +63,11 @@
     <Compile Include="crearModificarInsumo.Designer.cs">
       <DependentUpon>crearModificarInsumo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Principal.Designer.cs">
+      <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,6 +76,12 @@
     </Compile>
     <Compile Include="recetas.Designer.cs">
       <DependentUpon>recetas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ventanaProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ventanaProveedores.Designer.cs">
+      <DependentUpon>ventanaProveedores.cs</DependentUpon>
     </Compile>
     <Compile Include="ventas.cs">
       <SubType>Form</SubType>
@@ -89,8 +95,8 @@
     <EmbeddedResource Include="crearModificarInsumo.resx">
       <DependentUpon>crearModificarInsumo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Principal.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -103,6 +109,9 @@
     </Compile>
     <EmbeddedResource Include="recetas.resx">
       <DependentUpon>recetas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ventanaProveedores.resx">
+      <DependentUpon>ventanaProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ventas.resx">
       <DependentUpon>ventas.cs</DependentUpon>
