@@ -30,7 +30,6 @@ C:\Users\FAMILIA ROMA\Documents\Visual Studio 2015\Projects\sipe\sipe_c\sipe\bin
 C:\Users\FAMILIA ROMA\Documents\Visual Studio 2015\Projects\sipe\sipe_c\sipe\obj\Debug\sipe.csprojResolveAssemblyReference.cache
 C:\Users\FAMILIA ROMA\Documents\Visual Studio 2015\Projects\sipe\sipe_c\sipe\obj\Debug\sipe.crearComprarInsumos.resources
 C:\Users\FAMILIA ROMA\Documents\Visual Studio 2015\Projects\sipe\sipe_c\sipe\obj\Debug\sipe.crearModificarInsumo.resources
-C:\Users\FAMILIA ROMA\Documents\Visual Studio 2015\Projects\sipe\sipe_c\sipe\obj\Debug\sipe.Form1.resources
 C:\Users\FAMILIA ROMA\Documents\Visual Studio 2015\Projects\sipe\sipe_c\sipe\obj\Debug\sipe.Properties.Resources.resources
 C:\Users\FAMILIA ROMA\Documents\Visual Studio 2015\Projects\sipe\sipe_c\sipe\obj\Debug\sipe.recetas.resources
 C:\Users\FAMILIA ROMA\Documents\Visual Studio 2015\Projects\sipe\sipe_c\sipe\obj\Debug\sipe.csproj.GenerateResource.Cache
@@ -51,3 +50,6 @@ C:\Users\DAYBER RODRÍGUEZ\Documents\GitHub\sipe_c\sipe\bin\Debug\MySql.Data.dll
 C:\Users\DAYBER RODRÍGUEZ\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.ventanaProveedores.resources
 C:\Users\DAYBER RODRÍGUEZ\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.Principal.resources
 C:\Users\DAYBER RODRÍGUEZ\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.Ventas.resources
+C:\Users\FAMILIA ROMA\Documents\Visual Studio 2015\Projects\sipe\sipe_c\sipe\obj\Debug\sipe.Principal.resources
+C:\Users\FAMILIA ROMA\Documents\Visual Studio 2015\Projects\sipe\sipe_c\sipe\obj\Debug\sipe.ventanaProveedores.resources
+C:\Users\FAMILIA ROMA\Documents\Visual Studio 2015\Projects\sipe\sipe_c\sipe\obj\Debug\sipe.Ventas.resources
