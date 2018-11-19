@@ -47,7 +47,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.cajaBusqueda = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -61,20 +61,22 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.listaBusqueda = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // cajaCodigo
             // 
-            this.cajaCodigo.Location = new System.Drawing.Point(281, 32);
+            this.cajaCodigo.Location = new System.Drawing.Point(290, 32);
             this.cajaCodigo.Name = "cajaCodigo";
             this.cajaCodigo.Size = new System.Drawing.Size(78, 20);
             this.cajaCodigo.TabIndex = 0;
+            this.cajaCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cajaCodigo_KeyPress);
             this.cajaCodigo.Leave += new System.EventHandler(this.textBox1_Leave);
             // 
             // cajaNombre
             // 
-            this.cajaNombre.Location = new System.Drawing.Point(365, 32);
+            this.cajaNombre.Location = new System.Drawing.Point(374, 32);
             this.cajaNombre.Name = "cajaNombre";
             this.cajaNombre.Size = new System.Drawing.Size(147, 20);
             this.cajaNombre.TabIndex = 1;
@@ -121,7 +123,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(219, 35);
+            this.label1.Location = new System.Drawing.Point(228, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 13);
             this.label1.TabIndex = 3;
@@ -129,7 +131,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(518, 30);
+            this.button1.Location = new System.Drawing.Point(527, 30);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 4;
@@ -156,7 +158,7 @@
             // 
             // cajaNit
             // 
-            this.cajaNit.Location = new System.Drawing.Point(365, 58);
+            this.cajaNit.Location = new System.Drawing.Point(374, 58);
             this.cajaNit.Name = "cajaNit";
             this.cajaNit.Size = new System.Drawing.Size(100, 20);
             this.cajaNit.TabIndex = 7;
@@ -164,7 +166,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(338, 61);
+            this.label4.Location = new System.Drawing.Point(347, 61);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(23, 13);
             this.label4.TabIndex = 8;
@@ -214,12 +216,14 @@
             this.label8.TabIndex = 13;
             this.label8.Text = "Codigo/Nombre:";
             // 
-            // textBox4
+            // cajaBusqueda
             // 
-            this.textBox4.Location = new System.Drawing.Point(184, 142);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(177, 20);
-            this.textBox4.TabIndex = 14;
+            this.cajaBusqueda.Location = new System.Drawing.Point(184, 142);
+            this.cajaBusqueda.Name = "cajaBusqueda";
+            this.cajaBusqueda.Size = new System.Drawing.Size(177, 20);
+            this.cajaBusqueda.TabIndex = 14;
+            this.cajaBusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cajaBusqueda_KeyPress);
+            this.cajaBusqueda.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cajaBusqueda_KeyUp);
             // 
             // label9
             // 
@@ -340,11 +344,21 @@
             this.label16.TabIndex = 27;
             this.label16.Text = "$";
             // 
+            // listaBusqueda
+            // 
+            this.listaBusqueda.FormattingEnabled = true;
+            this.listaBusqueda.Location = new System.Drawing.Point(184, 161);
+            this.listaBusqueda.Name = "listaBusqueda";
+            this.listaBusqueda.Size = new System.Drawing.Size(177, 95);
+            this.listaBusqueda.TabIndex = 28;
+            this.listaBusqueda.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.listaBusqueda_PreviewKeyDown_1);
+            // 
             // crearComprarInsumos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(664, 451);
+            this.Controls.Add(this.listaBusqueda);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
@@ -358,7 +372,7 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.cajaBusqueda);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.comboBox1);
@@ -402,7 +416,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox cajaBusqueda;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label10;
@@ -416,5 +430,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ListBox listaBusqueda;
     }
 }
