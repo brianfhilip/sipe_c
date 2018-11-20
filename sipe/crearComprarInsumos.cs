@@ -105,7 +105,6 @@ namespace sipe
             {
                 listaBusqueda.Items.Add(reader.GetString(0));
                 listaBusqueda.SelectedIndex = 0;
-                
             }
 
         }
