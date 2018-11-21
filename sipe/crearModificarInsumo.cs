@@ -195,5 +195,10 @@ namespace sipe
                 }
             }
         }
+
+        private void crearModificarInsumo_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -68,3 +68,23 @@ C:\Users\ADSI\Documents\Visual Studio 2015\Projects\sipe_c\sipe_c\sipe\obj\Debug
 C:\Users\ADSI\Documents\Visual Studio 2015\Projects\sipe_c\sipe_c\sipe\obj\Debug\sipe.ventanaProveedores.resources
 C:\Users\ADSI\Documents\Visual Studio 2015\Projects\sipe_c\sipe_c\sipe\obj\Debug\sipe.Ventas.resources
 C:\Users\ADSI\Documents\Visual Studio 2015\Projects\sipe_c\sipe_c\sipe\obj\Debug\sipe.csproj.GenerateResource.Cache
+C:\Users\fernando\Documents\GitHub\sipe_c\sipe\bin\Debug\sipe.exe.config
+C:\Users\fernando\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.exe
+C:\Users\fernando\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.pdb
+C:\Users\fernando\Documents\GitHub\sipe_c\sipe\bin\Debug\sipe.exe
+C:\Users\fernando\Documents\GitHub\sipe_c\sipe\bin\Debug\sipe.pdb
+C:\Users\fernando\Documents\GitHub\sipe_c\sipe\bin\Debug\MySql.Data.dll
+C:\Users\fernando\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.csprojResolveAssemblyReference.cache
+C:\Users\fernando\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.crearComprarInsumos.resources
+C:\Users\fernando\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.crearModificarInsumo.resources
+C:\Users\fernando\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.Principal.resources
+C:\Users\fernando\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.Properties.Resources.resources
+C:\Users\fernando\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.recetas.resources
+C:\Users\fernando\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.ventanaProveedores.resources
+C:\Users\fernando\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.Ventas.resources
+C:\Users\fernando\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.csproj.GenerateResource.Cache
+C:\Users\fernando\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.Crear_categoria.resources
+C:\Users\fernando\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.Crear_Producto.resources
+C:\Users\fernando\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.Crear_Ubicacion.resources
+C:\Users\fernando\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.Form1.resources
+C:\Users\fernando\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.Actulizar_Inventario.resources

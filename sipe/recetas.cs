@@ -29,7 +29,7 @@ namespace sipe
 
         public  void mostrarInventarioinsumos()
         {
-            MySqlCommand miSentencia = new MySqlCommand("call mostrar_inventario_insumos", conexion.crearConexion());
+            MySqlCommand miSentencia = new MySqlCommand("call mostrar_insumos_busqueda", conexion.crearConexion());
             MySqlDataReader reader = miSentencia.ExecuteReader();
 
 

@@ -50,7 +50,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actulizar_Inventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Actulizar_Inventario.Designer.cs">
+      <DependentUpon>Actulizar_Inventario.cs</DependentUpon>
+    </Compile>
     <Compile Include="conexion.cs" />
+    <Compile Include="ConexionBase.cs" />
     <Compile Include="crearComprarInsumos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +69,30 @@
     </Compile>
     <Compile Include="crearModificarInsumo.Designer.cs">
       <DependentUpon>crearModificarInsumo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Crear_categoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Crear_categoria.Designer.cs">
+      <DependentUpon>Crear_categoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Crear_Producto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Crear_Producto.Designer.cs">
+      <DependentUpon>Crear_Producto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Crear_Ubicacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Crear_Ubicacion.Designer.cs">
+      <DependentUpon>Crear_Ubicacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
@@ -89,11 +120,26 @@
     <Compile Include="ventas.Designer.cs">
       <DependentUpon>ventas.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Actulizar_Inventario.resx">
+      <DependentUpon>Actulizar_Inventario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="crearComprarInsumos.resx">
       <DependentUpon>crearComprarInsumos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="crearModificarInsumo.resx">
       <DependentUpon>crearModificarInsumo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crear_categoria.resx">
+      <DependentUpon>Crear_categoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crear_Producto.resx">
+      <DependentUpon>Crear_Producto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Crear_Ubicacion.resx">
+      <DependentUpon>Crear_Ubicacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>

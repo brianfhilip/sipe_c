@@ -44,5 +44,12 @@ namespace sipe
             objVentas.MdiParent = this.MdiParent;
             objVentas.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form1 form = new Form1();
+            form.MdiParent = this.MdiParent;
+            form.Show();
+        }
     }
 }

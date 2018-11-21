@@ -229,6 +229,7 @@
             this.Name = "crearModificarInsumo";
             this.Text = "Crear-Modificar Insumo";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.crearModificarInsumo_FormClosed);
+            this.Load += new System.EventHandler(this.crearModificarInsumo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
