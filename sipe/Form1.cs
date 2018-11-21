@@ -253,6 +253,7 @@ namespace sipe
 
                 Form Crear = new Crear_Producto();
                 Crear.Show();
+                this.Hide();
 
             }
 

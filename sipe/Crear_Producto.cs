@@ -33,7 +33,7 @@ namespace sipe
 
             try {
 
-                MySqlCommand comando1 = new MySqlCommand("seleccionarUbicacion", ConexionBase.Conexion());
+                MySqlCommand comando1 = new MySqlCommand("seleccionarUbicacion", conexion.crearConexion());
                 comando1.CommandType = CommandType.StoredProcedure;
                 comando1.ExecuteScalar();
                 MySqlDataReader leer = comando1.ExecuteReader();
@@ -64,7 +64,7 @@ namespace sipe
 
             try {
 
-                MySqlCommand comando1 = new MySqlCommand("seleccionarCategoria", ConexionBase.Conexion());
+                MySqlCommand comando1 = new MySqlCommand("seleccionarCategoria", conexion.crearConexion());
                 comando1.CommandType = CommandType.StoredProcedure;
                 comando1.ExecuteScalar();
 
@@ -98,7 +98,7 @@ namespace sipe
 
             try {
 
-                MySqlCommand comando2 = new MySqlCommand("llamarTipo", ConexionBase.Conexion());
+                MySqlCommand comando2 = new MySqlCommand("llamarTipo", conexion.crearConexion());
                 comando2.CommandType = CommandType.StoredProcedure;
                 comando2.ExecuteScalar();
 
@@ -132,7 +132,7 @@ namespace sipe
 
             try {
 
-                MySqlCommand comando3 = new MySqlCommand("llamarbodega", ConexionBase.Conexion());
+                MySqlCommand comando3 = new MySqlCommand("llamarbodega", conexion.crearConexion());
                 comando3.CommandType = CommandType.StoredProcedure;
                 comando3.ExecuteScalar();
 
@@ -155,6 +155,38 @@ namespace sipe
 
             }
 
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try {
+
+                MySqlCommand comando4 = new MySqlCommand("ingresarProductosMarca", conexion.crearConexion());
+                comando4.CommandType = CommandType.StoredProcedure;
+                comando4.Parameters.AddWithValue("idP",caja1.Text);
+                comando4.Parameters.AddWithValue("idU",comboBox1.SelectedItem.ToString());
+                comando4.Parameters.AddWithValue("idC",comboBox2.SelectedItem.ToString());
+                comando4.Parameters.AddWithValue("nombre",caja2.Text);
+                comando4.Parameters.AddWithValue("unidad",caja4.Text);
+                comando4.Parameters.AddWithValue("precio",caja3.Text);
+                comando4.Parameters.AddWithValue("tipoC",comboBox3.SelectedItem.ToString());
+                comando4.Parameters.AddWithValue("idB",comboBox4.SelectedItem.ToString());
+                comando4.ExecuteScalar();
+
+
+                MessageBox.Show("El producto a sido registrado con exito");
+
+                Form m = new Form1();
+                m.Show();
+                this.Close();
+
+            }
+            catch (Exception tr) {
+
+                MessageBox.Show("A ocurrido un error al guardar la informacion",tr.ToString());
+
+            }
 
         }
     }
