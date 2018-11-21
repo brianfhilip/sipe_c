@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sipe", "sipe\sipe.csproj", "{CED483E6-79EE-4813-851D-7B59FC2135B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventario", "..\..\..\Desktop\2C#\Inventario\Inventario\Inventario.csproj", "{F22F5A3C-9E0B-4B2E-89BB-103637C5ED7C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{CED483E6-79EE-4813-851D-7B59FC2135B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CED483E6-79EE-4813-851D-7B59FC2135B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CED483E6-79EE-4813-851D-7B59FC2135B1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F22F5A3C-9E0B-4B2E-89BB-103637C5ED7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F22F5A3C-9E0B-4B2E-89BB-103637C5ED7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F22F5A3C-9E0B-4B2E-89BB-103637C5ED7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F22F5A3C-9E0B-4B2E-89BB-103637C5ED7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

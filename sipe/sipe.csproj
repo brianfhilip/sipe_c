@@ -56,6 +56,12 @@
     <Compile Include="Actulizar_Inventario.Designer.cs">
       <DependentUpon>Actulizar_Inventario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Clientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes.Designer.cs">
+      <DependentUpon>Clientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="conexion.cs" />
     <Compile Include="ConexionBase.cs" />
     <Compile Include="crearComprarInsumos.cs">
@@ -122,6 +128,9 @@
     </Compile>
     <EmbeddedResource Include="Actulizar_Inventario.resx">
       <DependentUpon>Actulizar_Inventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes.resx">
+      <DependentUpon>Clientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="crearComprarInsumos.resx">
       <DependentUpon>crearComprarInsumos.cs</DependentUpon>

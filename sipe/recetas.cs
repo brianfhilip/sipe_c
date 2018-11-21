@@ -102,7 +102,7 @@ namespace sipe
         private void button3_Click(object sender, EventArgs e)
         {
 
-        }
+        }   
 
         private void btnCrearInsumo_Click_1(object sender, EventArgs e)
         {
@@ -165,6 +165,11 @@ namespace sipe
                 mostrarInventarioinsumos(); 
                
             }
+        }
+
+        private void tablaInventarioInsumos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

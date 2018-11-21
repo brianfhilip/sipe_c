@@ -143,6 +143,7 @@
             this.tablaInventarioInsumos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tablaInventarioInsumos.Size = new System.Drawing.Size(752, 267);
             this.tablaInventarioInsumos.TabIndex = 0;
+            this.tablaInventarioInsumos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaInventarioInsumos_CellContentClick);
             // 
             // Column1
             // 

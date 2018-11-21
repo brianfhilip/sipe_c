@@ -51,5 +51,12 @@ namespace sipe
             form.MdiParent = this.MdiParent;
             form.Show();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Clientes cliente = new Clientes();
+            cliente.MdiParent = this.MdiParent;
+            cliente.Show();
+        }
     }
 }

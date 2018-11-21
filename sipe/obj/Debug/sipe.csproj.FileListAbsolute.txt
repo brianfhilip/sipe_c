@@ -88,3 +88,4 @@ C:\Users\fernando\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.Crear_Producto.res
 C:\Users\fernando\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.Crear_Ubicacion.resources
 C:\Users\fernando\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.Form1.resources
 C:\Users\fernando\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.Actulizar_Inventario.resources
+C:\Users\fernando\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.Clientes.resources
