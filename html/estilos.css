@@ -6,8 +6,6 @@
 h1{
     font:bold 20px Verdana, Geneva, sans-serif;
     color:red;
-    font-size: 80px;
-
 }
 h2{
     font: :bold 14px Verdana,Geneva, sans-serif;
@@ -25,27 +23,61 @@ body{
     background-color: cyan;
     border: 1px solid #999999;
 }
+
 #menu{
     background-color: #ccc000;
     height: 50px;
-    width: 100%;
+    width: 25%;
+}
+#menu2{
+    background-color: aqua;
+    height: 50px;
+    width: 25%;
+    float: left;
 }
 #contenedor{
     float: left;
     width: 100%;
-    height: 200px;
-    background-color: dimgrey;+
+    height: 500px;
+    background-color: dimgrey;
 }
 #seccion{
     float: left;
     width: 70%;
+    height: 500px;
     background-color: greenyellow;
-    font-size: 55px;
 }
 #lateral{
-    float: left;
+    float: right;
     width: 30%;
-    height: inherit;
+    height: 500px;
     background:#cccccc ;
+}
+#pie{
+    clear: both;
+    text-align: center;
+    padding: 100px;
+    border: top:px solid #999999;
+    background-color: aquamarine;
+}
+li{
+    float: left;
+    width: auto;
+}
+li a{
+    color: black;
+    text-align: left;
+    text-decoration: none;
+    vertical-align: middle;
+    padding: 12px;
+    line-height: normal;
+    display: inline-block;
 
+}
+
+#contenedorMenu{
+    float: left;
+    height: 100px;
+    width: 100%;
+    background-color: dimgrey;
 }
