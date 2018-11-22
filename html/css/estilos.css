@@ -22,19 +22,15 @@ body{
 #encabezado{
     background-color: cyan;
     border: 1px solid #999999;
+    
 }
 
 #menu{
-    background-color: #ccc000;
+    background-color:burlywood;
     height: 50px;
-    width: 25%;
+    width: 100%;
 }
-#menu2{
-    background-color: aqua;
-    height: 50px;
-    width: 25%;
-    float: left;
-}
+
 #contenedor{
     float: left;
     width: 100%;
@@ -45,7 +41,7 @@ body{
     float: left;
     width: 70%;
     height: 500px;
-    background-color: greenyellow;
+    background-color: darkgray;
 }
 #lateral{
     float: right;
@@ -58,7 +54,7 @@ body{
     text-align: center;
     padding: 100px;
     border: top:px solid #999999;
-    background-color: aquamarine;
+    background-color: silver;
 }
 li{
     float: left;
@@ -74,10 +70,19 @@ li a{
     display: inline-block;
 
 }
+#p:hover{
+    
+    background-color: green;
+    
+}
 
 #contenedorMenu{
     float: left;
-    height: 100px;
+    height: 40px;
     width: 100%;
     background-color: dimgrey;
+    padding: top;
+}
+ul{
+    list-style: none;
 }
