@@ -64,6 +64,12 @@
     </Compile>
     <Compile Include="conexion.cs" />
     <Compile Include="ConexionBase.cs" />
+    <Compile Include="crearCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="crearCliente.Designer.cs">
+      <DependentUpon>crearCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="crearComprarInsumos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crearCliente.resx">
+      <DependentUpon>crearCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="crearComprarInsumos.resx">
       <DependentUpon>crearComprarInsumos.cs</DependentUpon>
