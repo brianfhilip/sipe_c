@@ -90,3 +90,4 @@ C:\Users\fernando\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.Form1.resources
 C:\Users\fernando\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.Actulizar_Inventario.resources
 C:\Users\fernando\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.Clientes.resources
 C:\Users\fernando\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.crearCliente.resources
+C:\Users\fernando\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.Actualizar.resources

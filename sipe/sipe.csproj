@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actualizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Actualizar.Designer.cs">
+      <DependentUpon>Actualizar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Actulizar_Inventario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +138,9 @@
     <Compile Include="ventas.Designer.cs">
       <DependentUpon>ventas.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Actualizar.resx">
+      <DependentUpon>Actualizar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Actulizar_Inventario.resx">
       <DependentUpon>Actulizar_Inventario.cs</DependentUpon>
     </EmbeddedResource>

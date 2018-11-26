@@ -110,5 +110,31 @@ namespace sipe
             }
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            int c = 0;
+
+            var frm = Application.OpenForms.OfType<Actualizar>().FirstOrDefault();
+            if (frm != null)
+            {
+
+                c = 1;
+
+
+
+            }
+            else
+            {
+
+                Form actualizar = new Actualizar();
+                this.Hide();
+                actualizar.Show();
+
+
+            }
+
+        }
     }
 }
