@@ -48,12 +48,12 @@
             this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.grbTipoDePago = new System.Windows.Forms.GroupBox();
             this.lblValorProducto = new System.Windows.Forms.Label();
             this.lblTotalAPagar = new System.Windows.Forms.Label();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblCambio = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFactura)).BeginInit();
             this.grbTipoDePago.SuspendLayout();
@@ -72,7 +72,7 @@
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(469, 24);
+            this.lblFecha.Location = new System.Drawing.Point(397, 24);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(37, 13);
             this.lblFecha.TabIndex = 1;
@@ -155,6 +155,7 @@
             this.lblCodigoProducto.Size = new System.Drawing.Size(102, 13);
             this.lblCodigoProducto.TabIndex = 9;
             this.lblCodigoProducto.Text = "Codigo del producto";
+            this.lblCodigoProducto.Click += new System.EventHandler(this.lblCodigoProducto_Click);
             // 
             // lblCanttidadExistente
             // 
@@ -164,6 +165,7 @@
             this.lblCanttidadExistente.Size = new System.Drawing.Size(95, 13);
             this.lblCanttidadExistente.TabIndex = 10;
             this.lblCanttidadExistente.Text = "Cantidad Existente";
+            this.lblCanttidadExistente.Click += new System.EventHandler(this.lblCanttidadExistente_Click);
             // 
             // label4
             // 
@@ -180,6 +182,7 @@
             this.txtCantidadAVender.Name = "txtCantidadAVender";
             this.txtCantidadAVender.Size = new System.Drawing.Size(103, 20);
             this.txtCantidadAVender.TabIndex = 12;
+            this.txtCantidadAVender.TextChanged += new System.EventHandler(this.txtCantidadAVender_TextChanged);
             // 
             // btnAgregar
             // 
@@ -250,6 +253,12 @@
             this.Cantidad.Name = "Cantidad";
             this.Cantidad.ReadOnly = true;
             // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
+            // 
             // btnSalir
             // 
             this.btnSalir.Location = new System.Drawing.Point(490, 421);
@@ -300,12 +309,6 @@
             this.lblTotalAPagar.Size = new System.Drawing.Size(70, 13);
             this.lblTotalAPagar.TabIndex = 22;
             this.lblTotalAPagar.Text = "Total a pagar";
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
             // 
             // lblCambio
             // 

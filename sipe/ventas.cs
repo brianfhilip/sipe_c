@@ -26,10 +26,28 @@ namespace sipe
         {
             InitializeComponent();
             //DateTime fechaConversion = DateTime.Parse(this.lblFecha.Text);
-
+            mostrarConsecutivo();
+            lblFecha.Text = DateTime.Now.ToString("dd/MM/yyyy"); 
         }
 
+        private void mostrarConsecutivo()
+        {
+           
+            MySqlCommand miSentencia = new MySqlCommand("traer_numero_venta", conexion.crearConexion());
+            miSentencia.CommandType = CommandType.StoredProcedure;
+            MySqlDataReader reader = miSentencia.ExecuteReader();
 
+            while (reader.Read())
+            {
+
+                lblVenta.Text = reader.GetString(0);
+                
+            }
+            
+           // donde va a poner la fecha?  ole espereme un momento que voy a entrar las motos ok
+
+
+        }
 
         private void txtNumCedula_TextChanged(object sender, EventArgs e)
         {
@@ -179,6 +197,7 @@ namespace sipe
 
         private void lblVenta_Click(object sender, EventArgs e)
         {
+            // intente mostrar el nit de la venta o 
             try
             {
 
@@ -241,6 +260,7 @@ namespace sipe
 
         private void grbTipoDePago_Enter(object sender, EventArgs e)
         {
+           
             tipoDePago();
         }
 
@@ -255,6 +275,21 @@ namespace sipe
         private void lblVendedor_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void lblCanttidadExistente_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCodigoProducto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCantidadAVender_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
