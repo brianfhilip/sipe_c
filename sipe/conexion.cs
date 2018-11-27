@@ -13,9 +13,9 @@ namespace sipe
             /*string connectionString = "Data Source=MSSQL1;" +
                  "Initial Catalog=AdventureWorks;Integrated Security=SSPI;" +
                 "MultipleActiveResultSets=True";*/
-            MySqlConnection miConexion =new  MySqlConnection("server=127.0.0.1;database=sipe;user=root;pwd=;");//no srve ? pille este codigo en el procedure
+            MySqlConnection miConexion =new  MySqlConnection("server=127.0.0.1;database=sipe;user=root;pwd=;");
             miConexion.Open();
             return miConexion;
         }
-    }   //esta como rapida jajaj espere
+    }
 }

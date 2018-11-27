@@ -12,7 +12,7 @@ namespace sipe
     {
        public static MySqlConnection Conexion() {
 
-            MySqlConnection miConexion = new MySqlConnection("server=127.0.0.1;Database=sipe1;uid=root;pwd=");
+            MySqlConnection miConexion = new MySqlConnection("server=127.0.0.1;Database=sipe;uid=root;pwd=");
             miConexion.Open();
 
             return miConexion;
