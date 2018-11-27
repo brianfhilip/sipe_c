@@ -99,11 +99,3 @@ C:\Users\FAMILIA ROMA\Documents\Visual Studio 2015\Projects\sipe\sipe_c\sipe\obj
 C:\Users\FAMILIA ROMA\Documents\Visual Studio 2015\Projects\sipe\sipe_c\sipe\obj\Debug\sipe.Crear_Producto.resources
 C:\Users\FAMILIA ROMA\Documents\Visual Studio 2015\Projects\sipe\sipe_c\sipe\obj\Debug\sipe.Crear_Ubicacion.resources
 C:\Users\FAMILIA ROMA\Documents\Visual Studio 2015\Projects\sipe\sipe_c\sipe\obj\Debug\sipe.Form1.resources
-C:\Users\ADSI\Documents\Visual Studio 2015\Projects\sipe_c\sipe_c\sipe\obj\Debug\sipe.Actualizar.resources
-C:\Users\ADSI\Documents\Visual Studio 2015\Projects\sipe_c\sipe_c\sipe\obj\Debug\sipe.Actulizar_Inventario.resources
-C:\Users\ADSI\Documents\Visual Studio 2015\Projects\sipe_c\sipe_c\sipe\obj\Debug\sipe.Clientes.resources
-C:\Users\ADSI\Documents\Visual Studio 2015\Projects\sipe_c\sipe_c\sipe\obj\Debug\sipe.crearCliente.resources
-C:\Users\ADSI\Documents\Visual Studio 2015\Projects\sipe_c\sipe_c\sipe\obj\Debug\sipe.Crear_categoria.resources
-C:\Users\ADSI\Documents\Visual Studio 2015\Projects\sipe_c\sipe_c\sipe\obj\Debug\sipe.Crear_Producto.resources
-C:\Users\ADSI\Documents\Visual Studio 2015\Projects\sipe_c\sipe_c\sipe\obj\Debug\sipe.Crear_Ubicacion.resources
-C:\Users\ADSI\Documents\Visual Studio 2015\Projects\sipe_c\sipe_c\sipe\obj\Debug\sipe.Form1.resources
