@@ -62,6 +62,8 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.listaBusqueda = new System.Windows.Forms.ListBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.tablaPedidoInsumo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -353,13 +355,32 @@
             this.listaBusqueda.Name = "listaBusqueda";
             this.listaBusqueda.Size = new System.Drawing.Size(177, 95);
             this.listaBusqueda.TabIndex = 28;
-            this.listaBusqueda.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.listaBusqueda_PreviewKeyDown_1);
+            this.listaBusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listaBusqueda_KeyPress);
+            // 
+            // textBox1
+            // 
+            this.textBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.textBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.textBox1.Location = new System.Drawing.Point(65, 368);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(200, 20);
+            this.textBox1.TabIndex = 29;
+            this.textBox1.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.textBox1_PreviewKeyDown);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(105, 399);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(160, 20);
+            this.textBox2.TabIndex = 30;
             // 
             // crearComprarInsumos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(664, 451);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.listaBusqueda);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
@@ -391,6 +412,7 @@
             this.Controls.Add(this.cajaCodigo);
             this.Name = "crearComprarInsumos";
             this.Text = "crearComprarInsumos";
+            this.Load += new System.EventHandler(this.crearComprarInsumos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tablaPedidoInsumo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -433,5 +455,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ListBox listaBusqueda;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
