@@ -30,7 +30,7 @@
         {
             this.cajaCodigo = new System.Windows.Forms.TextBox();
             this.cajaNombre = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tablaPedidoInsumo = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,13 +43,13 @@
             this.cajaNit = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.labelFecha = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.cajaBusqueda = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.cajaCantidad = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -62,7 +62,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.listaBusqueda = new System.Windows.Forms.ListBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaPedidoInsumo)).BeginInit();
             this.SuspendLayout();
             // 
             // cajaCodigo
@@ -81,20 +81,20 @@
             this.cajaNombre.Size = new System.Drawing.Size(147, 20);
             this.cajaNombre.TabIndex = 1;
             // 
-            // dataGridView1
+            // tablaPedidoInsumo
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tablaPedidoInsumo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tablaPedidoInsumo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
             this.Column4,
             this.Column5});
-            this.dataGridView1.Location = new System.Drawing.Point(59, 177);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(543, 147);
-            this.dataGridView1.TabIndex = 2;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.tablaPedidoInsumo.Location = new System.Drawing.Point(59, 177);
+            this.tablaPedidoInsumo.Name = "tablaPedidoInsumo";
+            this.tablaPedidoInsumo.Size = new System.Drawing.Size(543, 147);
+            this.tablaPedidoInsumo.TabIndex = 2;
+            this.tablaPedidoInsumo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Column1
             // 
@@ -182,14 +182,14 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Fecha";
             // 
-            // label6
+            // labelFecha
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(452, 107);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 13);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "yyyy/mm/dd";
+            this.labelFecha.AutoSize = true;
+            this.labelFecha.Location = new System.Drawing.Point(452, 107);
+            this.labelFecha.Name = "labelFecha";
+            this.labelFecha.Size = new System.Drawing.Size(65, 13);
+            this.labelFecha.TabIndex = 10;
+            this.labelFecha.Text = "yyyy/mm/dd";
             // 
             // comboBox1
             // 
@@ -235,12 +235,13 @@
             this.label9.TabIndex = 15;
             this.label9.Text = "Cantidad:";
             // 
-            // textBox5
+            // cajaCantidad
             // 
-            this.textBox5.Location = new System.Drawing.Point(455, 142);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 16;
+            this.cajaCantidad.Location = new System.Drawing.Point(455, 142);
+            this.cajaCantidad.Name = "cajaCantidad";
+            this.cajaCantidad.Size = new System.Drawing.Size(100, 20);
+            this.cajaCantidad.TabIndex = 16;
+            this.cajaCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox5_KeyPress);
             // 
             // label10
             // 
@@ -371,13 +372,13 @@
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.cajaCantidad);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.cajaBusqueda);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.labelFecha);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cajaNit);
@@ -385,12 +386,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.tablaPedidoInsumo);
             this.Controls.Add(this.cajaNombre);
             this.Controls.Add(this.cajaCodigo);
             this.Name = "crearComprarInsumos";
             this.Text = "crearComprarInsumos";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tablaPedidoInsumo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -400,7 +401,7 @@
 
         private System.Windows.Forms.TextBox cajaCodigo;
         private System.Windows.Forms.TextBox cajaNombre;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView tablaPedidoInsumo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -413,13 +414,13 @@
         private System.Windows.Forms.TextBox cajaNit;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelFecha;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox cajaBusqueda;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox cajaCantidad;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
