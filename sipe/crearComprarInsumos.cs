@@ -17,6 +17,7 @@ namespace sipe
         {
             InitializeComponent();
             listaBusqueda.Visible = false;
+            labelFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
 
         private void textBox1_Leave(object sender, EventArgs e)
@@ -44,7 +45,6 @@ namespace sipe
                         {
                             cajaNombre.Text = reader2.GetString(0);
                             cajaNit.Text = reader2.GetString(1);
-
                         }
                         cajaBusqueda.Focus();
                     }
@@ -98,50 +98,112 @@ namespace sipe
             miSentencia.CommandType = CommandType.StoredProcedure;
             miSentencia.Parameters.AddWithValue("busq",cajaBusqueda.Text);
             MySqlDataReader reader = miSentencia.ExecuteReader();
-            listaBusqueda.Visible = true;
+            
             listaBusqueda.Items.Clear();
 
             while (reader.Read())
             {
+                listaBusqueda.Visible = true;
                 listaBusqueda.Items.Add(reader.GetString(0));
                 listaBusqueda.SelectedIndex = 0;
             }
 
-        }
-
-        private void listaBusqueda_KeyDown(object sender, KeyEventArgs e)
-        {
-            //cajaBusqueda.Focus();
-        }
-
-        private void listaBusqueda_KeyPress(object sender, KeyPressEventArgs e)
-        {
-         //   cajaBusqueda.Focus();
-        }
-
-        private void listaBusqueda_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-            //cajaBusqueda.Focus();
-        }
-
-        private void listaBusqueda_KeyUp(object sender, KeyEventArgs e)
-        {
-            //cajaBusqueda.Focus();
-        }
-
-        private void cajaBusqueda_KeyPress(object sender, KeyPressEventArgs e)
-        {
             listaBusqueda.Focus();
         }
 
-        private void listaBusqueda_PreviewKeyDown_1(object sender, PreviewKeyDownEventArgs e)
-        {
-            cajaBusqueda.Focus();
-        }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void textBox5_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar==(int)Keys.Enter)
+            {
+                if (cajaBusqueda.Text.IndexOf("-") >= 0)
+                {
+                    int posicionCaracter = cajaBusqueda.Text.IndexOf("-");
+                    int codigo= Convert.ToInt32(cajaBusqueda.Text.Remove(posicionCaracter));
+                    MessageBox.Show(Convert.ToString( codigo));
+                    MySqlCommand miSentencia = new MySqlCommand("select idInsumo,nombreInsumo,costoInsumo from insumos where idInsumo='"+codigo+"'",conexion.crearConexion());
+                    MySqlDataReader reader = miSentencia.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        string[] fila = new string[4];
+                        fila[0] = reader.GetString(0);
+                        fila[1] = reader.GetString(1);
+                        fila[2] = cajaCantidad.Text;
+                        fila[3] = Convert.ToString(Convert.ToInt32(cajaCantidad.Text) * reader.GetInt32(2));
+
+                        tablaPedidoInsumo.Rows.Add(fila);
+                        cajaBusqueda.Text = "";
+                        cajaCantidad.Text = "";
+                        cajaBusqueda.Focus();
+                    }
+
+                }
+            }
+            
+        }
+
+        private void crearComprarInsumos_Load(object sender, EventArgs e)
+        {
+            autoCompletar(textBox1);
+        }
+        private void autoCompletar(TextBox cajaTexto)
+        {
+            MySqlCommand miSentencia = new MySqlCommand("select nombreInsumo from insumos",conexion.crearConexion());
+            MySqlDataReader reader = miSentencia.ExecuteReader();
+            while (reader.Read())
+            {
+                cajaTexto.AutoCompleteCustomSource.Add(reader.GetString(0));
+               
+               
+            }
+        }
+
+        private void listaBusqueda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+
+            if (e.KeyChar==(int)Keys.Enter)
+            {
+                cajaBusqueda.Text = listaBusqueda.SelectedItem.ToString();
+                listaBusqueda.Visible = false;
+                cajaCantidad.Focus();
+            }
+            if (e.KeyChar == (int)Keys.Back)
+            {
+                if (cajaBusqueda.Text.Length > 0)
+                {
+                    cajaBusqueda.Text = cajaBusqueda.Text.Remove(cajaBusqueda.Text.Length - 1);
+                    cajaBusqueda.Focus();
+                   // listaBusqueda.Visible = false;
+                }
+            }
+            else
+            {
+                cajaBusqueda.Focus();
+                cajaBusqueda.Text = cajaBusqueda.Text + e.KeyChar;
+                cajaBusqueda.SelectionStart = cajaBusqueda.Text.Length;
+            }
+        }
+
+        private void cajaBusqueda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar==(int)Keys.Enter)
+            {
+                cajaCantidad.Focus();
+            }
+        }
+
+        private void textBox1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.K)
+            {
+                textBox2.Focus();
+            }
         }
     }
 }
