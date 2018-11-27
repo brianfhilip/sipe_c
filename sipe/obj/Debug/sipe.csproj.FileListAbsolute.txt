@@ -91,3 +91,11 @@ C:\Users\fernando\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.Actulizar_Inventar
 C:\Users\fernando\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.Clientes.resources
 C:\Users\fernando\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.crearCliente.resources
 C:\Users\fernando\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.Actualizar.resources
+C:\Users\FAMILIA ROMA\Documents\Visual Studio 2015\Projects\sipe\sipe_c\sipe\obj\Debug\sipe.Actualizar.resources
+C:\Users\FAMILIA ROMA\Documents\Visual Studio 2015\Projects\sipe\sipe_c\sipe\obj\Debug\sipe.Actulizar_Inventario.resources
+C:\Users\FAMILIA ROMA\Documents\Visual Studio 2015\Projects\sipe\sipe_c\sipe\obj\Debug\sipe.Clientes.resources
+C:\Users\FAMILIA ROMA\Documents\Visual Studio 2015\Projects\sipe\sipe_c\sipe\obj\Debug\sipe.crearCliente.resources
+C:\Users\FAMILIA ROMA\Documents\Visual Studio 2015\Projects\sipe\sipe_c\sipe\obj\Debug\sipe.Crear_categoria.resources
+C:\Users\FAMILIA ROMA\Documents\Visual Studio 2015\Projects\sipe\sipe_c\sipe\obj\Debug\sipe.Crear_Producto.resources
+C:\Users\FAMILIA ROMA\Documents\Visual Studio 2015\Projects\sipe\sipe_c\sipe\obj\Debug\sipe.Crear_Ubicacion.resources
+C:\Users\FAMILIA ROMA\Documents\Visual Studio 2015\Projects\sipe\sipe_c\sipe\obj\Debug\sipe.Form1.resources
