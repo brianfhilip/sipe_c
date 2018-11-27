@@ -71,6 +71,7 @@
             this.cajaCodigo.Name = "cajaCodigo";
             this.cajaCodigo.Size = new System.Drawing.Size(78, 20);
             this.cajaCodigo.TabIndex = 0;
+            this.cajaCodigo.TextChanged += new System.EventHandler(this.cajaCodigo_TextChanged);
             this.cajaCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cajaCodigo_KeyPress);
             this.cajaCodigo.Leave += new System.EventHandler(this.textBox1_Leave);
             // 

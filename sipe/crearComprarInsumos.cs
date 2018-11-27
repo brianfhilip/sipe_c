@@ -143,5 +143,10 @@ namespace sipe
         {
 
         }
+
+        private void cajaCodigo_TextChanged(object sender, EventArgs e)
+        {
+            //asdasdasd
+        }
     }
 }
