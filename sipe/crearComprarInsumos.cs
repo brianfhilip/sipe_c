@@ -314,6 +314,8 @@ namespace sipe
             }
             miSentencia.ExecuteNonQuery();
 
+
+
             MessageBox.Show("Factura guardada exitosamente");
            
         }
