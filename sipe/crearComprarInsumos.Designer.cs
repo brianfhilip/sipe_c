@@ -58,12 +58,11 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.labelSubtotal = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.listaBusqueda = new System.Windows.Forms.ListBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.tablaPedidoInsumo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,6 +84,7 @@
             // 
             // tablaPedidoInsumo
             // 
+            this.tablaPedidoInsumo.AllowUserToAddRows = false;
             this.tablaPedidoInsumo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tablaPedidoInsumo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -97,7 +97,7 @@
             this.tablaPedidoInsumo.Size = new System.Drawing.Size(543, 147);
             this.tablaPedidoInsumo.TabIndex = 2;
             this.tablaPedidoInsumo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.tablaPedidoInsumo.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.tablaPedidoInsumo_UserAddedRow);
+            this.tablaPedidoInsumo.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.tablaPedidoInsumo_RowsAdded);
             // 
             // Column1
             // 
@@ -322,14 +322,14 @@
             this.label13.TabIndex = 24;
             this.label13.Text = "Total";
             // 
-            // label14
+            // labelSubtotal
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(542, 340);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(13, 13);
-            this.label14.TabIndex = 25;
-            this.label14.Text = "$";
+            this.labelSubtotal.AutoSize = true;
+            this.labelSubtotal.Location = new System.Drawing.Point(542, 340);
+            this.labelSubtotal.Name = "labelSubtotal";
+            this.labelSubtotal.Size = new System.Drawing.Size(13, 13);
+            this.labelSubtotal.TabIndex = 25;
+            this.labelSubtotal.Text = "$";
             // 
             // label15
             // 
@@ -358,34 +358,24 @@
             this.listaBusqueda.TabIndex = 28;
             this.listaBusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listaBusqueda_KeyPress);
             // 
-            // textBox1
+            // richTextBox1
             // 
-            this.textBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.textBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.textBox1.Location = new System.Drawing.Point(65, 368);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 20);
-            this.textBox1.TabIndex = 29;
-            this.textBox1.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.textBox1_PreviewKeyDown);
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(105, 399);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(160, 20);
-            this.textBox2.TabIndex = 30;
+            this.richTextBox1.Location = new System.Drawing.Point(142, 362);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(163, 53);
+            this.richTextBox1.TabIndex = 29;
+            this.richTextBox1.Text = "";
             // 
             // crearComprarInsumos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(664, 451);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.listaBusqueda);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.label14);
+            this.Controls.Add(this.labelSubtotal);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -452,11 +442,10 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label labelSubtotal;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ListBox listaBusqueda;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }

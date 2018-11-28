@@ -94,6 +94,11 @@ namespace sipe
 
         private void cajaBusqueda_KeyUp(object sender, KeyEventArgs e)
         {
+
+            if (!cajaBusqueda.Text.Equals(""))
+            {
+
+            
             MySqlCommand miSentencia = new MySqlCommand("autocompletar_productos", conexion.crearConexion());
             miSentencia.CommandType = CommandType.StoredProcedure;
             miSentencia.Parameters.AddWithValue("busq",cajaBusqueda.Text);
@@ -101,14 +106,29 @@ namespace sipe
             
             listaBusqueda.Items.Clear();
 
+            int flag = 0;
             while (reader.Read())
             {
-                listaBusqueda.Visible = true;
-                listaBusqueda.Items.Add(reader.GetString(0));
-                listaBusqueda.SelectedIndex = 0;
+                if (!reader.GetString(0).Equals("sin resultados"))
+                {
+                    listaBusqueda.Visible = true;
+                    listaBusqueda.Items.Add(reader.GetString(0));
+                    listaBusqueda.SelectedIndex = 0;
+                    flag = 1;
+                 }
             }
 
+                if (flag==0)
+                {
+                    listaBusqueda.Visible = false;
+                }
+
             listaBusqueda.Focus();
+            }
+            else
+            {
+                listaBusqueda.Visible = false;
+            }
         }
 
 
@@ -121,27 +141,32 @@ namespace sipe
         {
             if (e.KeyChar==(int)Keys.Enter)
             {
-                if (cajaBusqueda.Text.IndexOf("-") >= 0)
+                if (!cajaCantidad.Text.Equals(""))
                 {
-                    int posicionCaracter = cajaBusqueda.Text.IndexOf("-");
-                    int codigo= Convert.ToInt32(cajaBusqueda.Text.Remove(posicionCaracter));
-                    MessageBox.Show(Convert.ToString( codigo));
-                    MySqlCommand miSentencia = new MySqlCommand("select idInsumo,nombreInsumo,costoInsumo from insumos where idInsumo='"+codigo+"'",conexion.crearConexion());
-                    MySqlDataReader reader = miSentencia.ExecuteReader();
-                    while (reader.Read())
+                    if (cajaBusqueda.Text.IndexOf("-") >= 0)
                     {
-                        string[] fila = new string[4];
-                        fila[0] = reader.GetString(0);
-                        fila[1] = reader.GetString(1);
-                        fila[2] = cajaCantidad.Text;
-                        fila[3] = Convert.ToString(Convert.ToInt32(cajaCantidad.Text) * reader.GetInt32(2));
+                        int posicionCaracter = cajaBusqueda.Text.IndexOf("-");
+                        int codigo = Convert.ToInt32(cajaBusqueda.Text.Remove(posicionCaracter));
 
-                        tablaPedidoInsumo.Rows.Add(fila);
-                        cajaBusqueda.Text = "";
-                        cajaCantidad.Text = "";
-                        cajaBusqueda.Focus();
+                        MySqlCommand miSentencia = new MySqlCommand("select idInsumo,nombreInsumo,costoInsumo from insumos where idInsumo='" + codigo + "'", conexion.crearConexion());
+                        MySqlDataReader reader = miSentencia.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            string[] fila = new string[5];
+
+                            fila[0] = reader.GetString(0);
+                            fila[1] = reader.GetString(1);
+                            fila[2] = cajaCantidad.Text;
+                            fila[3] = reader.GetString(2);
+                            fila[4] = Convert.ToString(Convert.ToInt32(cajaCantidad.Text) * reader.GetInt32(2));
+
+                            tablaPedidoInsumo.Rows.Add(fila);
+                            cajaBusqueda.Text = "";
+                            cajaCantidad.Text = "";
+                            cajaBusqueda.Focus();
+                        }
+
                     }
-
                 }
             }
             
@@ -149,44 +174,38 @@ namespace sipe
 
         private void crearComprarInsumos_Load(object sender, EventArgs e)
         {
-            autoCompletar(textBox1);
+           
         }
-        private void autoCompletar(TextBox cajaTexto)
-        {
-            MySqlCommand miSentencia = new MySqlCommand("select nombreInsumo from insumos",conexion.crearConexion());
-            MySqlDataReader reader = miSentencia.ExecuteReader();
-            while (reader.Read())
-            {
-                cajaTexto.AutoCompleteCustomSource.Add(reader.GetString(0));
-               
-               
-            }
-        }
+       
 
         private void listaBusqueda_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
 
-            if (e.KeyChar==(int)Keys.Enter)
+
+            if (e.KeyChar == (int)Keys.Enter)
             {
                 cajaBusqueda.Text = listaBusqueda.SelectedItem.ToString();
                 listaBusqueda.Visible = false;
                 cajaCantidad.Focus();
             }
-            if (e.KeyChar == (int)Keys.Back)
-            {
-                if (cajaBusqueda.Text.Length > 0)
-                {
-                    cajaBusqueda.Text = cajaBusqueda.Text.Remove(cajaBusqueda.Text.Length - 1);
-                    cajaBusqueda.Focus();
-                   // listaBusqueda.Visible = false;
-                }
-            }
             else
             {
-                cajaBusqueda.Focus();
-                cajaBusqueda.Text = cajaBusqueda.Text + e.KeyChar;
-                cajaBusqueda.SelectionStart = cajaBusqueda.Text.Length;
+                if (e.KeyChar == (int)Keys.Back)
+                {
+                    if (cajaBusqueda.Text.Length > 0)
+                    {
+                        cajaBusqueda.Text = cajaBusqueda.Text.Remove(cajaBusqueda.Text.Length - 1);
+                        cajaBusqueda.Focus();
+                        // listaBusqueda.Visible = false;
+                    }
+
+                }
+                else
+                {
+                    cajaBusqueda.Focus();
+                    cajaBusqueda.Text = cajaBusqueda.Text + e.KeyChar;
+                    cajaBusqueda.SelectionStart = cajaBusqueda.Text.Length;
+                }
             }
         }
 
@@ -198,20 +217,22 @@ namespace sipe
             }
         }
 
-        private void textBox1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+
+        private void tablaPedidoInsumo_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            if (e.KeyCode == Keys.K)
+            int acu = 0;
+            for (int i = 0; i < tablaPedidoInsumo.Rows.Count; i++)
             {
-                textBox2.Focus();
+                acu = acu + Convert.ToInt32(tablaPedidoInsumo.Rows[i].Cells[4].Value);
             }
+            labelSubtotal.Text = "$ "+Convert.ToString(acu);
         }
 
-        private void tablaPedidoInsumo_UserAddedRow(object sender, DataGridViewRowEventArgs e)
+        private void cajaCantidad_Enter(object sender, EventArgs e)
         {
-            for (int i = 0; i < length; i++)
-            {
-
-            }
+            listaBusqueda.Visible = false;
         }
+
+        
     }
 }
