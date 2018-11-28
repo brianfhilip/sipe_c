@@ -17,46 +17,37 @@ namespace sipe
         {
             InitializeComponent();
             listaBusqueda.Visible = false;
-            labelFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            labelFecha.Text = DateTime.Now.ToString("yyyy/MM/dd");
+            mostrarConsecutivo();
+            mostrarTipoCompra();
+            radioSi.Checked = true;
+        }
+
+        private void mostrarTipoCompra()
+        {
+            MySqlCommand miSentencia = new MySqlCommand("select nombreTipoCompra from tipos_de_compras", conexion.crearConexion());
+            MySqlDataReader reader = miSentencia.ExecuteReader();
+            while (reader.Read())
+            {
+                comboTipoCompra.Items.Add(reader.GetString(0));
+                comboTipoCompra.SelectedIndex = 0;
+            }
+        }
+
+        private void mostrarConsecutivo()
+        {
+            MySqlCommand miSentencia = new MySqlCommand("traer_numero_factura_compra",conexion.crearConexion());
+            miSentencia.CommandType = CommandType.StoredProcedure;
+            MySqlDataReader reader = miSentencia.ExecuteReader();
+            while (reader.Read())
+            {
+                labelNumeroCompra.Text = reader.GetString(0);
+            }
         }
 
         private void textBox1_Leave(object sender, EventArgs e)
         {
-            if (cajaCodigo.Text.Equals(""))
-            {
-                cajaBusqueda.Focus();
-            }
-            else
-            {
-                MySqlCommand miSentencia = new MySqlCommand("validar_idProveedor", conexion.crearConexion());
-                miSentencia.CommandType = CommandType.StoredProcedure;
-                miSentencia.Parameters.AddWithValue("codigo", cajaCodigo.Text);
-                MySqlDataReader reader = miSentencia.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    if (reader.GetString(0).Equals("1"))
-                    {
-
-                        MySqlCommand miSentencia2 = new MySqlCommand("select nombreProveedor,nitProveedor from proveedores where idProveedor='" + cajaCodigo.Text + "'", conexion.crearConexion());
-                        MySqlDataReader reader2 = miSentencia2.ExecuteReader();
-
-                        while (reader2.Read())
-                        {
-                            cajaNombre.Text = reader2.GetString(0);
-                            cajaNit.Text = reader2.GetString(1);
-                        }
-                        cajaBusqueda.Focus();
-                    }
-                    else
-                    {
-                        MessageBox.Show("El codigo no se encuentra registrado");
-                        cajaNombre.Text = "";
-                        cajaNit.Text = "";
-                        cajaCodigo.Focus();
-                    }
-                }
-            }
+            /**/
         }
 
         private void cajaCodigo_KeyPress(object sender, KeyPressEventArgs e)
@@ -65,14 +56,14 @@ namespace sipe
             {
                 MySqlCommand miSentencia = new MySqlCommand("validar_idProveedor", conexion.crearConexion());
                 miSentencia.CommandType = CommandType.StoredProcedure;
-                miSentencia.Parameters.AddWithValue("codigo", cajaCodigo.Text);
+                miSentencia.Parameters.AddWithValue("codigo", cajaCodigoProveedor.Text);
                 MySqlDataReader reader = miSentencia.ExecuteReader();
 
                 while (reader.Read())
                 {
                     if (reader.GetString(0).Equals("1"))
                     {
-                        MySqlCommand miSentencia2 = new MySqlCommand("select nombreProveedor,nitProveedor from proveedores where idProveedor='" + cajaCodigo.Text + "'", conexion.crearConexion());
+                        MySqlCommand miSentencia2 = new MySqlCommand("select nombreProveedor,nitProveedor from proveedores where idProveedor='" + cajaCodigoProveedor.Text + "'", conexion.crearConexion());
                         MySqlDataReader reader2 = miSentencia2.ExecuteReader();
 
                         while (reader2.Read())
@@ -101,7 +92,7 @@ namespace sipe
             
             MySqlCommand miSentencia = new MySqlCommand("autocompletar_productos", conexion.crearConexion());
             miSentencia.CommandType = CommandType.StoredProcedure;
-            miSentencia.Parameters.AddWithValue("busq",cajaBusqueda.Text);
+            miSentencia.Parameters.AddWithValue("busq",cajaBusqueda.Text.ToUpper());
             MySqlDataReader reader = miSentencia.ExecuteReader();
             
             listaBusqueda.Items.Clear();
@@ -146,10 +137,10 @@ namespace sipe
                     if (cajaBusqueda.Text.IndexOf("-") >= 0)
                     {
                         int posicionCaracter = cajaBusqueda.Text.IndexOf("-");
-                        int codigo = Convert.ToInt32(cajaBusqueda.Text.Remove(posicionCaracter));
-
-                        MySqlCommand miSentencia = new MySqlCommand("select idInsumo,nombreInsumo,costoInsumo from insumos where idInsumo='" + codigo + "'", conexion.crearConexion());
+                        cajaBusqueda.Text.Remove(posicionCaracter);
+                        MySqlCommand miSentencia = new MySqlCommand("select idInsumo,nombreInsumo,costoInsumo from insumos where idInsumo='" + cajaBusqueda.Text.Remove(posicionCaracter) + "'", conexion.crearConexion());
                         MySqlDataReader reader = miSentencia.ExecuteReader();
+                        int cont = 0;
                         while (reader.Read())
                         {
                             string[] fila = new string[5];
@@ -164,8 +155,18 @@ namespace sipe
                             cajaBusqueda.Text = "";
                             cajaCantidad.Text = "";
                             cajaBusqueda.Focus();
+                            cont = 1;
                         }
-
+                        if (cont ==0)
+                        {
+                            MessageBox.Show("Verifique que el nombre o codigo del producto ingresado son correctos");
+                            cajaBusqueda.Focus();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Verifique que el nombre o codigo del producto ingresado son correctos");
+                        cajaBusqueda.Focus();
                     }
                 }
             }
@@ -225,7 +226,11 @@ namespace sipe
             {
                 acu = acu + Convert.ToInt32(tablaPedidoInsumo.Rows[i].Cells[4].Value);
             }
-            labelSubtotal.Text = "$ "+Convert.ToString(acu);
+            int iva = (acu * 16) / 100 ;
+            int subtotal = acu - ((acu * 16) / 100);
+            labelSubtotal.Text = "$ " + subtotal.ToString("N0");
+            labelIva.Text = "$ " + iva.ToString("N0");
+            labelTotal.Text= "$ " + acu.ToString("N0");
         }
 
         private void cajaCantidad_Enter(object sender, EventArgs e)
@@ -233,6 +238,84 @@ namespace sipe
             listaBusqueda.Visible = false;
         }
 
-        
+        private void cajaNombre_Enter(object sender, EventArgs e)
+        {
+            if (cajaCodigoProveedor.Text.Equals(""))
+            {
+                cajaBusqueda.Focus();
+            }
+            else
+            {
+                MySqlCommand miSentencia = new MySqlCommand("validar_idProveedor", conexion.crearConexion());
+                miSentencia.CommandType = CommandType.StoredProcedure;
+                miSentencia.Parameters.AddWithValue("codigo", cajaCodigoProveedor.Text);
+                MySqlDataReader reader = miSentencia.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    if (reader.GetString(0).Equals("1"))
+                    {
+
+                        MySqlCommand miSentencia2 = new MySqlCommand("select nombreProveedor,nitProveedor from proveedores where idProveedor='" + cajaCodigoProveedor.Text + "'", conexion.crearConexion());
+                        MySqlDataReader reader2 = miSentencia2.ExecuteReader();
+
+                        while (reader2.Read())
+                        {
+                            cajaNombre.Text = reader2.GetString(0);
+                            cajaNit.Text = reader2.GetString(1);
+                        }
+                        cajaBusqueda.Focus();
+                    }
+                    else
+                    {
+                        MessageBox.Show("El codigo no se encuentra registrado");
+                        cajaNombre.Text = "";
+                        cajaNit.Text = "";
+                        cajaCodigoProveedor.Focus();
+                    }
+                }
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (cajaCodigoProveedor.Text.Equals(""))
+            {
+                MessageBox.Show("No ha seleccionado un proveedor");
+                cajaCodigoProveedor.Focus();
+            }
+            else if (tablaPedidoInsumo.Rows.Count==0)
+            {
+                MessageBox.Show("No ha ingresado productos a la venta");
+            }
+           
+            MySqlCommand miSentencia = new MySqlCommand("insertar_factura_compra", conexion.crearConexion());
+            miSentencia.CommandType = CommandType.StoredProcedure;
+            miSentencia.Parameters.AddWithValue("idProve",cajaCodigoProveedor.Text);
+            miSentencia.Parameters.AddWithValue("idTipoCom",comboTipoCompra.SelectedItem.ToString());
+            miSentencia.Parameters.AddWithValue("fechaCom",Convert.ToDateTime(labelFecha.Text));
+            string valorSinSigno =  labelTotal.Text.Substring(1);
+            float valorSin = Convert.ToInt64(Convert.ToDouble(valorSinSigno));
+          
+            miSentencia.Parameters.AddWithValue("valTotal",valorSin);
+            miSentencia.Parameters.AddWithValue("idBod","2");
+            if (radioSi.Checked)
+            {
+            miSentencia.Parameters.AddWithValue("estado","RECIBIDO");
+            }
+            else
+            {
+            miSentencia.Parameters.AddWithValue("estado", "SIN RECIBIR");
+            }
+            miSentencia.ExecuteNonQuery();
+
+            MessageBox.Show("Factura guardada exitosamente");
+           
+        }
     }
 }
