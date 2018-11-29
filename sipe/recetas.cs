@@ -27,7 +27,7 @@ namespace sipe
 
         }
 
-        public  void mostrarInventarioinsumos()
+        public void mostrarInventarioinsumos()
         {
             MySqlCommand miSentencia = new MySqlCommand("call mostrar_insumos_busqueda", conexion.crearConexion());
             MySqlDataReader reader = miSentencia.ExecuteReader();
@@ -40,14 +40,16 @@ namespace sipe
                 {
                     fila[i] = reader.GetString(i);
                 }
-                
+
                 tablaInventarioInsumos.Rows.Add(fila);
             }
         }
 
         private void mostrarCompraInsumos()
         {
-            MySqlCommand miSentencia = new MySqlCommand("call mostrar_compra_insumos", conexion.crearConexion());
+            try { 
+            MySqlCommand miSentencia = new MySqlCommand("mostrar_compra_insumos", conexion.crearConexion());
+            miSentencia.CommandType = CommandType.StoredProcedure;
             MySqlDataReader reader = miSentencia.ExecuteReader();
 
 
@@ -56,12 +58,15 @@ namespace sipe
                 string[] fila = new string[reader.FieldCount];
                 for (int i = 0; i < reader.FieldCount; i++)
                 {
-                    fila[i] = reader.GetString(i);
+                  fila[i] = reader.GetString(i);
                 }
                 tablaCompraInsumos.Rows.Add(fila);
             }
-        }
+        }catch(MySqlException e)
+            {
 
+            }
+        }
         private void mostrarRecetas()
         {
             MySqlCommand miSentencia = new MySqlCommand("call mostrar_recetas", conexion.crearConexion());

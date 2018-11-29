@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cajaCodigo = new System.Windows.Forms.TextBox();
+            this.cajaCodigoProveedor = new System.Windows.Forms.TextBox();
             this.cajaNombre = new System.Windows.Forms.TextBox();
             this.tablaPedidoInsumo = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,42 +39,42 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelNumeroCompra = new System.Windows.Forms.Label();
             this.cajaNit = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.labelFecha = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboTipoCompra = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.cajaBusqueda = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.cajaCantidad = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioSi = new System.Windows.Forms.RadioButton();
+            this.radioNo = new System.Windows.Forms.RadioButton();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.labelSubtotal = new System.Windows.Forms.Label();
+            this.labelIva = new System.Windows.Forms.Label();
+            this.labelTotal = new System.Windows.Forms.Label();
             this.listaBusqueda = new System.Windows.Forms.ListBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tablaPedidoInsumo)).BeginInit();
             this.SuspendLayout();
             // 
-            // cajaCodigo
+            // cajaCodigoProveedor
             // 
-            this.cajaCodigo.Location = new System.Drawing.Point(290, 32);
-            this.cajaCodigo.Name = "cajaCodigo";
-            this.cajaCodigo.Size = new System.Drawing.Size(78, 20);
-            this.cajaCodigo.TabIndex = 0;
-            this.cajaCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cajaCodigo_KeyPress);
-            this.cajaCodigo.Leave += new System.EventHandler(this.textBox1_Leave);
+            this.cajaCodigoProveedor.Location = new System.Drawing.Point(290, 32);
+            this.cajaCodigoProveedor.Name = "cajaCodigoProveedor";
+            this.cajaCodigoProveedor.Size = new System.Drawing.Size(78, 20);
+            this.cajaCodigoProveedor.TabIndex = 0;
+            this.cajaCodigoProveedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cajaCodigo_KeyPress);
+            this.cajaCodigoProveedor.Leave += new System.EventHandler(this.textBox1_Leave);
             // 
             // cajaNombre
             // 
@@ -82,9 +82,11 @@
             this.cajaNombre.Name = "cajaNombre";
             this.cajaNombre.Size = new System.Drawing.Size(147, 20);
             this.cajaNombre.TabIndex = 1;
+            this.cajaNombre.Enter += new System.EventHandler(this.cajaNombre_Enter);
             // 
             // tablaPedidoInsumo
             // 
+            this.tablaPedidoInsumo.AllowUserToAddRows = false;
             this.tablaPedidoInsumo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tablaPedidoInsumo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -97,7 +99,7 @@
             this.tablaPedidoInsumo.Size = new System.Drawing.Size(543, 147);
             this.tablaPedidoInsumo.TabIndex = 2;
             this.tablaPedidoInsumo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.tablaPedidoInsumo.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.tablaPedidoInsumo_UserAddedRow);
+            this.tablaPedidoInsumo.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.tablaPedidoInsumo_RowsAdded);
             // 
             // Column1
             // 
@@ -151,14 +153,14 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Nro Compra:";
             // 
-            // label3
+            // labelNumeroCompra
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(139, 35);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(19, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "00";
+            this.labelNumeroCompra.AutoSize = true;
+            this.labelNumeroCompra.Location = new System.Drawing.Point(139, 35);
+            this.labelNumeroCompra.Name = "labelNumeroCompra";
+            this.labelNumeroCompra.Size = new System.Drawing.Size(19, 13);
+            this.labelNumeroCompra.TabIndex = 6;
+            this.labelNumeroCompra.Text = "00";
             // 
             // cajaNit
             // 
@@ -194,13 +196,14 @@
             this.labelFecha.TabIndex = 10;
             this.labelFecha.Text = "yyyy/mm/dd";
             // 
-            // comboBox1
+            // comboTipoCompra
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(184, 104);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 11;
+            this.comboTipoCompra.FormattingEnabled = true;
+            this.comboTipoCompra.Location = new System.Drawing.Point(184, 104);
+            this.comboTipoCompra.Name = "comboTipoCompra";
+            this.comboTipoCompra.Size = new System.Drawing.Size(121, 21);
+            this.comboTipoCompra.TabIndex = 11;
+            this.comboTipoCompra.Text = "Seleccionar";
             // 
             // label7
             // 
@@ -255,27 +258,27 @@
             this.label10.TabIndex = 17;
             this.label10.Text = "Desea recibir la mercaderia una vez realizada la compra:";
             // 
-            // radioButton1
+            // radioSi
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(341, 340);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(34, 17);
-            this.radioButton1.TabIndex = 18;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Si";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioSi.AutoSize = true;
+            this.radioSi.Location = new System.Drawing.Point(341, 340);
+            this.radioSi.Name = "radioSi";
+            this.radioSi.Size = new System.Drawing.Size(34, 17);
+            this.radioSi.TabIndex = 18;
+            this.radioSi.TabStop = true;
+            this.radioSi.Text = "Si";
+            this.radioSi.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // radioNo
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(341, 363);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(39, 17);
-            this.radioButton2.TabIndex = 19;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "No";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioNo.AutoSize = true;
+            this.radioNo.Location = new System.Drawing.Point(341, 357);
+            this.radioNo.Name = "radioNo";
+            this.radioNo.Size = new System.Drawing.Size(39, 17);
+            this.radioNo.TabIndex = 19;
+            this.radioNo.TabStop = true;
+            this.radioNo.Text = "No";
+            this.radioNo.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -285,6 +288,7 @@
             this.button2.TabIndex = 20;
             this.button2.Text = "Crear Compra";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -294,6 +298,7 @@
             this.button3.TabIndex = 21;
             this.button3.Text = "Cancelar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label11
             // 
@@ -322,32 +327,32 @@
             this.label13.TabIndex = 24;
             this.label13.Text = "Total";
             // 
-            // label14
+            // labelSubtotal
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(542, 340);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(13, 13);
-            this.label14.TabIndex = 25;
-            this.label14.Text = "$";
+            this.labelSubtotal.AutoSize = true;
+            this.labelSubtotal.Location = new System.Drawing.Point(542, 340);
+            this.labelSubtotal.Name = "labelSubtotal";
+            this.labelSubtotal.Size = new System.Drawing.Size(13, 13);
+            this.labelSubtotal.TabIndex = 25;
+            this.labelSubtotal.Text = "$";
             // 
-            // label15
+            // labelIva
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(542, 368);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(13, 13);
-            this.label15.TabIndex = 26;
-            this.label15.Text = "$";
+            this.labelIva.AutoSize = true;
+            this.labelIva.Location = new System.Drawing.Point(542, 368);
+            this.labelIva.Name = "labelIva";
+            this.labelIva.Size = new System.Drawing.Size(13, 13);
+            this.labelIva.TabIndex = 26;
+            this.labelIva.Text = "$";
             // 
-            // label16
+            // labelTotal
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(542, 399);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(13, 13);
-            this.label16.TabIndex = 27;
-            this.label16.Text = "$";
+            this.labelTotal.AutoSize = true;
+            this.labelTotal.Location = new System.Drawing.Point(542, 399);
+            this.labelTotal.Name = "labelTotal";
+            this.labelTotal.Size = new System.Drawing.Size(13, 13);
+            this.labelTotal.TabIndex = 27;
+            this.labelTotal.Text = "$";
             // 
             // listaBusqueda
             // 
@@ -358,59 +363,59 @@
             this.listaBusqueda.TabIndex = 28;
             this.listaBusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listaBusqueda_KeyPress);
             // 
-            // textBox1
+            // richTextBox1
             // 
-            this.textBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.textBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.textBox1.Location = new System.Drawing.Point(65, 368);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 20);
-            this.textBox1.TabIndex = 29;
-            this.textBox1.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.textBox1_PreviewKeyDown);
+            this.richTextBox1.Location = new System.Drawing.Point(65, 377);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(240, 62);
+            this.richTextBox1.TabIndex = 29;
+            this.richTextBox1.Text = "";
             // 
-            // textBox2
+            // label6
             // 
-            this.textBox2.Location = new System.Drawing.Point(105, 399);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(160, 20);
-            this.textBox2.TabIndex = 30;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(62, 361);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(81, 13);
+            this.label6.TabIndex = 30;
+            this.label6.Text = "Observaciones:";
             // 
             // crearComprarInsumos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(664, 451);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.listaBusqueda);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.label14);
+            this.Controls.Add(this.labelTotal);
+            this.Controls.Add(this.labelIva);
+            this.Controls.Add(this.labelSubtotal);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.radioNo);
+            this.Controls.Add(this.radioSi);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.cajaCantidad);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.cajaBusqueda);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboTipoCompra);
             this.Controls.Add(this.labelFecha);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cajaNit);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelNumeroCompra);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tablaPedidoInsumo);
             this.Controls.Add(this.cajaNombre);
-            this.Controls.Add(this.cajaCodigo);
+            this.Controls.Add(this.cajaCodigoProveedor);
             this.Name = "crearComprarInsumos";
             this.Text = "crearComprarInsumos";
             this.Load += new System.EventHandler(this.crearComprarInsumos_Load);
@@ -422,7 +427,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox cajaCodigo;
+        private System.Windows.Forms.TextBox cajaCodigoProveedor;
         private System.Windows.Forms.TextBox cajaNombre;
         private System.Windows.Forms.DataGridView tablaPedidoInsumo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
@@ -433,30 +438,30 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelNumeroCompra;
         private System.Windows.Forms.TextBox cajaNit;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label labelFecha;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboTipoCompra;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox cajaBusqueda;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox cajaCantidad;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioSi;
+        private System.Windows.Forms.RadioButton radioNo;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label labelSubtotal;
+        private System.Windows.Forms.Label labelIva;
+        private System.Windows.Forms.Label labelTotal;
         private System.Windows.Forms.ListBox listaBusqueda;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label label6;
     }
 }
