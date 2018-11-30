@@ -62,7 +62,7 @@
             this.labelIva = new System.Windows.Forms.Label();
             this.labelTotal = new System.Windows.Forms.Label();
             this.listaBusqueda = new System.Windows.Forms.ListBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.TextObservaciones = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tablaPedidoInsumo)).BeginInit();
             this.SuspendLayout();
@@ -363,13 +363,13 @@
             this.listaBusqueda.TabIndex = 28;
             this.listaBusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listaBusqueda_KeyPress);
             // 
-            // richTextBox1
+            // TextObservaciones
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(65, 377);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(240, 62);
-            this.richTextBox1.TabIndex = 29;
-            this.richTextBox1.Text = "";
+            this.TextObservaciones.Location = new System.Drawing.Point(65, 377);
+            this.TextObservaciones.Name = "TextObservaciones";
+            this.TextObservaciones.Size = new System.Drawing.Size(240, 62);
+            this.TextObservaciones.TabIndex = 29;
+            this.TextObservaciones.Text = "";
             // 
             // label6
             // 
@@ -386,7 +386,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(664, 451);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.TextObservaciones);
             this.Controls.Add(this.listaBusqueda);
             this.Controls.Add(this.labelTotal);
             this.Controls.Add(this.labelIva);
@@ -418,6 +418,7 @@
             this.Controls.Add(this.cajaCodigoProveedor);
             this.Name = "crearComprarInsumos";
             this.Text = "crearComprarInsumos";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.crearComprarInsumos_FormClosed);
             this.Load += new System.EventHandler(this.crearComprarInsumos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tablaPedidoInsumo)).EndInit();
             this.ResumeLayout(false);
@@ -426,10 +427,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox cajaCodigoProveedor;
-        private System.Windows.Forms.TextBox cajaNombre;
-        private System.Windows.Forms.DataGridView tablaPedidoInsumo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -438,8 +435,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label labelNumeroCompra;
-        private System.Windows.Forms.TextBox cajaNit;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label labelFecha;
@@ -450,18 +445,23 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox cajaCantidad;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.RadioButton radioSi;
-        private System.Windows.Forms.RadioButton radioNo;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label labelSubtotal;
-        private System.Windows.Forms.Label labelIva;
-        private System.Windows.Forms.Label labelTotal;
         private System.Windows.Forms.ListBox listaBusqueda;
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.Label labelNumeroCompra;
+        public System.Windows.Forms.TextBox cajaCodigoProveedor;
+        public System.Windows.Forms.TextBox cajaNombre;
+        public System.Windows.Forms.DataGridView tablaPedidoInsumo;
+        public System.Windows.Forms.TextBox cajaNit;
+        public System.Windows.Forms.RadioButton radioSi;
+        public System.Windows.Forms.RadioButton radioNo;
+        public System.Windows.Forms.Button button2;
+        public System.Windows.Forms.Label labelSubtotal;
+        public System.Windows.Forms.Label labelIva;
+        public System.Windows.Forms.Label labelTotal;
+        public System.Windows.Forms.RichTextBox TextObservaciones;
     }
 }

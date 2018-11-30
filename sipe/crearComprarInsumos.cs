@@ -280,10 +280,15 @@ namespace sipe
         private void button3_Click(object sender, EventArgs e)
         {
             this.Dispose();
+            recetas objRecetas = new recetas();
+            objRecetas.MdiParent = this.MdiParent;
+            objRecetas.Show();
+
+            objRecetas.tabControl1.SelectedIndex = 1;
         }
 
         private void button2_Click(object sender, EventArgs e)
-        {
+        {   
             if (cajaCodigoProveedor.Text.Equals(""))
             {
                 MessageBox.Show("No ha seleccionado un proveedor");
@@ -292,8 +297,11 @@ namespace sipe
             else if (tablaPedidoInsumo.Rows.Count==0)
             {
                 MessageBox.Show("No ha ingresado productos a la venta");
+                cajaBusqueda.Focus();
             }
-           
+            else
+            {
+
             MySqlCommand miSentencia = new MySqlCommand("insertar_factura_compra", conexion.crearConexion());
             miSentencia.CommandType = CommandType.StoredProcedure;
             miSentencia.Parameters.AddWithValue("idProve",cajaCodigoProveedor.Text);
@@ -314,10 +322,31 @@ namespace sipe
             }
             miSentencia.ExecuteNonQuery();
 
-
-
             MessageBox.Show("Factura guardada exitosamente");
-           
+
+                limpiarIncrementarFactura();
+            }
+        }
+
+        private void limpiarIncrementarFactura()
+        {
+            mostrarConsecutivo();
+            cajaCodigoProveedor.Text = "";
+            cajaNombre.Text = "";
+            cajaNit.Text = "";
+            tablaPedidoInsumo.Rows.Clear();
+            TextObservaciones.Text = "";
+            labelIva.Text = "$";
+            labelSubtotal.Text = "$";
+            labelTotal.Text = "$";
+        }
+
+        private void crearComprarInsumos_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            recetas objRecetas = new recetas();
+            objRecetas.MdiParent = this.MdiParent;
+            objRecetas.Show();
+            objRecetas.tabControl1.SelectedIndex = 1;
         }
     }
 }

@@ -42,7 +42,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button7 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnModificarCompra = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.tablaCompraInsumos = new System.Windows.Forms.DataGridView();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -179,7 +179,7 @@
             // 
             this.tabPage2.Controls.Add(this.button7);
             this.tabPage2.Controls.Add(this.button3);
-            this.tabPage2.Controls.Add(this.button2);
+            this.tabPage2.Controls.Add(this.btnModificarCompra);
             this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.tablaCompraInsumos);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -210,15 +210,15 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button2
+            // btnModificarCompra
             // 
-            this.button2.Location = new System.Drawing.Point(234, 347);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(140, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "MODIFICAR COMPRA";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnModificarCompra.Location = new System.Drawing.Point(234, 347);
+            this.btnModificarCompra.Name = "btnModificarCompra";
+            this.btnModificarCompra.Size = new System.Drawing.Size(140, 23);
+            this.btnModificarCompra.TabIndex = 2;
+            this.btnModificarCompra.Text = "MODIFICAR COMPRA";
+            this.btnModificarCompra.UseVisualStyleBackColor = true;
+            this.btnModificarCompra.Click += new System.EventHandler(this.btnModificarCompra_Click);
             // 
             // button1
             // 
@@ -397,16 +397,13 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnCrearInsumo;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnModificarCompra;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView tablaCompraInsumos;
         private System.Windows.Forms.TabPage tabPage3;
@@ -431,5 +428,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
         public System.Windows.Forms.DataGridView tablaInventarioInsumos;
+        public System.Windows.Forms.TabPage tabPage2;
+        public System.Windows.Forms.TabControl tabControl1;
     }
 }

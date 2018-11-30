@@ -14,6 +14,7 @@ namespace sipe
     public partial class recetas : Form
     {
         crearModificarInsumo objCrearModificar;
+        crearComprarInsumos objCrearCompraInsumo;
         public recetas()
         {
             InitializeComponent();
@@ -90,8 +91,14 @@ namespace sipe
 
         private void button1_Click(object sender, EventArgs e)
         {
-            crearComprarInsumos objCrearCompraInsumo = new crearComprarInsumos();
-            objCrearCompraInsumo.Show();
+
+            if (objCrearCompraInsumo == null || objCrearCompraInsumo.IsDisposed)
+            {
+                objCrearCompraInsumo = new crearComprarInsumos();
+                objCrearCompraInsumo.Show();
+                this.Dispose();
+            }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -174,7 +181,39 @@ namespace sipe
 
         private void tablaInventarioInsumos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+        }
 
+        private void btnModificarCompra_Click(object sender, EventArgs e)
+        {
+            if (tablaCompraInsumos.CurrentRow.Index >= 0)
+            {
+                if (objCrearModificar == null || objCrearModificar.IsDisposed)
+                { 
+                    objCrearCompraInsumo = new crearComprarInsumos();
+                    objCrearCompraInsumo.Show();
+                }
+
+                int valorCelda = tablaCompraInsumos.CurrentRow.Index;
+                MySqlCommand miSentencia = new MySqlCommand("select * from facturas_de_compras where idFacturaCompra='" + tablaCompraInsumos.Rows[valorCelda].Cells[0].Value + "'", conexion.crearConexion());
+                MySqlDataReader reader = miSentencia.ExecuteReader();
+                while (reader.Read())        
+                {
+                    objCrearCompraInsumo.labelNumeroCompra.Text = reader.GetString(0);
+                    objCrearCompraInsumo.cajaCodigoProveedor.Text = reader.GetString(1);
+                        MySqlCommand miSentencia2 = new MySqlCommand("select nombreProveedor,nitProveedor from proveedores where idProveedor='" + reader.GetString(1) + "'",conexion.crearConexion());
+                        MySqlDataReader reader2 = miSentencia2.ExecuteReader();
+                        while (reader2.Read())
+                        {
+                    objCrearCompraInsumo.cajaNombre.Text = reader2.GetString(0);
+                    objCrearCompraInsumo.cajaNit.Text = reader2.GetString(1);
+                        }
+
+               }
+
+                this.Dispose();
+            }
         }
     }
 }
+
