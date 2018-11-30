@@ -53,7 +53,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.radioSi = new System.Windows.Forms.RadioButton();
             this.radioNo = new System.Windows.Forms.RadioButton();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -64,6 +64,7 @@
             this.listaBusqueda = new System.Windows.Forms.ListBox();
             this.TextObservaciones = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnModificar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tablaPedidoInsumo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -280,21 +281,21 @@
             this.radioNo.Text = "No";
             this.radioNo.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnGuardar
             // 
-            this.button2.Location = new System.Drawing.Point(386, 363);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(90, 23);
-            this.button2.TabIndex = 20;
-            this.button2.Text = "Crear Compra";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnGuardar.Location = new System.Drawing.Point(386, 363);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(98, 23);
+            this.btnGuardar.TabIndex = 20;
+            this.btnGuardar.Text = "Crear Compra";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(386, 392);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(90, 23);
+            this.button3.Size = new System.Drawing.Size(98, 23);
             this.button3.TabIndex = 21;
             this.button3.Text = "Cancelar";
             this.button3.UseVisualStyleBackColor = true;
@@ -380,11 +381,22 @@
             this.label6.TabIndex = 30;
             this.label6.Text = "Observaciones:";
             // 
+            // btnModificar
+            // 
+            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.Location = new System.Drawing.Point(386, 421);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(98, 23);
+            this.btnModificar.TabIndex = 31;
+            this.btnModificar.Text = "Guardar Cambios";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            // 
             // crearComprarInsumos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(664, 451);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.TextObservaciones);
             this.Controls.Add(this.listaBusqueda);
@@ -395,7 +407,7 @@
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.radioNo);
             this.Controls.Add(this.radioSi);
             this.Controls.Add(this.label10);
@@ -458,10 +470,11 @@
         public System.Windows.Forms.TextBox cajaNit;
         public System.Windows.Forms.RadioButton radioSi;
         public System.Windows.Forms.RadioButton radioNo;
-        public System.Windows.Forms.Button button2;
+        public System.Windows.Forms.Button btnGuardar;
         public System.Windows.Forms.Label labelSubtotal;
         public System.Windows.Forms.Label labelIva;
         public System.Windows.Forms.Label labelTotal;
         public System.Windows.Forms.RichTextBox TextObservaciones;
+        public System.Windows.Forms.Button btnModificar;
     }
 }

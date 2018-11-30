@@ -192,6 +192,8 @@ namespace sipe
                 { 
                     objCrearCompraInsumo = new crearComprarInsumos();
                     objCrearCompraInsumo.Show();
+                    objCrearCompraInsumo.btnGuardar.Visible = false;
+                    objCrearCompraInsumo.btnModificar.Location=new Point(386, 363);
                 }
 
                 int valorCelda = tablaCompraInsumos.CurrentRow.Index;
@@ -208,8 +210,22 @@ namespace sipe
                     objCrearCompraInsumo.cajaNombre.Text = reader2.GetString(0);
                     objCrearCompraInsumo.cajaNit.Text = reader2.GetString(1);
                         }
-
                }
+                
+                
+
+                MySqlCommand miSentencia3 = new MySqlCommand("select * from detalles_compras_insumos where idFacturaCompra='"+objCrearCompraInsumo.labelNumeroCompra.Text+"'", conexion.crearConexion());
+                reader = miSentencia3.ExecuteReader();
+                while (reader.Read())
+                {   
+                    string[] fila = new string[reader.FieldCount];
+                    for (int i = 0; i < objCrearCompraInsumo.tablaPedidoInsumo.ColumnCount; i++)
+                    {
+                        fila[i] = reader.GetString(i);
+                    }
+                    objCrearCompraInsumo.tablaPedidoInsumo.Rows.Add(fila);
+                   
+                }
 
                 this.Dispose();
             }

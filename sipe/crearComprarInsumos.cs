@@ -320,9 +320,21 @@ namespace sipe
             {
             miSentencia.Parameters.AddWithValue("estado", "SIN RECIBIR");
             }
+
             miSentencia.ExecuteNonQuery();
 
-            MessageBox.Show("Factura guardada exitosamente");
+                for (int i = 0; i < tablaPedidoInsumo.Rows.Count; i++)
+                {
+                miSentencia = new MySqlCommand("insertar_detalles_compra_insumo",conexion.crearConexion());
+                miSentencia.CommandType = CommandType.StoredProcedure;
+                miSentencia.Parameters.AddWithValue("idFact",labelNumeroCompra.Text);
+                miSentencia.Parameters.AddWithValue("idInsu", tablaPedidoInsumo.Rows[i].Cells[0].Value);
+                miSentencia.Parameters.AddWithValue("cant",tablaPedidoInsumo.Rows[i].Cells[2].Value);
+                miSentencia.Parameters.AddWithValue("subTo",tablaPedidoInsumo.Rows[i].Cells[4].Value);
+                miSentencia.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("Factura guardada exitosamente");
 
                 limpiarIncrementarFactura();
             }
