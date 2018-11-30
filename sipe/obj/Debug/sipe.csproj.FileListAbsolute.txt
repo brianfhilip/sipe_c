@@ -43,3 +43,26 @@ C:\Users\FAMILIA ROMA\Documents\Visual Studio 2015\Projects\sipe\sipe_c\sipe\obj
 C:\Users\FAMILIA ROMA\Documents\Visual Studio 2015\Projects\sipe\sipe_c\sipe\bin\Debug\sipe.exe
 C:\Users\FAMILIA ROMA\Documents\Visual Studio 2015\Projects\sipe\sipe_c\sipe\bin\Debug\sipe.pdb
 C:\Users\FAMILIA ROMA\Documents\Visual Studio 2015\Projects\sipe\sipe_c\sipe\bin\Debug\MySql.Data.dll
+C:\Users\Lenovo\Documents\GitHub\sipe_c\sipe\bin\Debug\sipe.exe.config
+C:\Users\Lenovo\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.exe
+C:\Users\Lenovo\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.pdb
+C:\Users\Lenovo\Documents\GitHub\sipe_c\sipe\bin\Debug\sipe.exe
+C:\Users\Lenovo\Documents\GitHub\sipe_c\sipe\bin\Debug\sipe.pdb
+C:\Users\Lenovo\Documents\GitHub\sipe_c\sipe\bin\Debug\MySql.Data.dll
+C:\Users\Lenovo\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.csprojResolveAssemblyReference.cache
+C:\Users\Lenovo\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.Actualizar.resources
+C:\Users\Lenovo\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.Actulizar_Inventario.resources
+C:\Users\Lenovo\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.Clientes.resources
+C:\Users\Lenovo\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.crearCliente.resources
+C:\Users\Lenovo\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.crearComprarInsumos.resources
+C:\Users\Lenovo\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.crearModificarInsumo.resources
+C:\Users\Lenovo\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.Crear_categoria.resources
+C:\Users\Lenovo\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.Crear_Producto.resources
+C:\Users\Lenovo\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.Crear_Ubicacion.resources
+C:\Users\Lenovo\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.Form1.resources
+C:\Users\Lenovo\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.Principal.resources
+C:\Users\Lenovo\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.Properties.Resources.resources
+C:\Users\Lenovo\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.recetas.resources
+C:\Users\Lenovo\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.ventanaProveedores.resources
+C:\Users\Lenovo\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.Ventas.resources
+C:\Users\Lenovo\Documents\GitHub\sipe_c\sipe\obj\Debug\sipe.csproj.GenerateResource.Cache
