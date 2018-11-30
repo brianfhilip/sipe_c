@@ -194,6 +194,7 @@ namespace sipe
                     objCrearCompraInsumo.Show();
                     objCrearCompraInsumo.btnGuardar.Visible = false;
                     objCrearCompraInsumo.btnModificar.Location=new Point(386, 363);
+                    objCrearCompraInsumo.cajaBusqueda.Focus();
                 }
 
                 int valorCelda = tablaCompraInsumos.CurrentRow.Index;
@@ -214,7 +215,7 @@ namespace sipe
                 
                 
 
-                MySqlCommand miSentencia3 = new MySqlCommand("select * from detalles_compras_insumos where idFacturaCompra='"+objCrearCompraInsumo.labelNumeroCompra.Text+"'", conexion.crearConexion());
+                MySqlCommand miSentencia3 = new MySqlCommand("select detalles_compras_insumos.idInsumo,nombreInsumo,cantidad,costoInsumo,subtotal from detalles_compras_insumos,insumos where idFacturaCompra='" + objCrearCompraInsumo.labelNumeroCompra.Text+ "' and detalles_compras_insumos.idInsumo=insumos.idInsumo ", conexion.crearConexion());
                 reader = miSentencia3.ExecuteReader();
                 while (reader.Read())
                 {   

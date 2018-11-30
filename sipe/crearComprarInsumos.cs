@@ -302,42 +302,47 @@ namespace sipe
             else
             {
 
-            MySqlCommand miSentencia = new MySqlCommand("insertar_factura_compra", conexion.crearConexion());
-            miSentencia.CommandType = CommandType.StoredProcedure;
-            miSentencia.Parameters.AddWithValue("idProve",cajaCodigoProveedor.Text);
-            miSentencia.Parameters.AddWithValue("idTipoCom",comboTipoCompra.SelectedItem.ToString());
-            miSentencia.Parameters.AddWithValue("fechaCom",Convert.ToDateTime(labelFecha.Text));
-            string valorSinSigno =  labelTotal.Text.Substring(1);
-            float valorSin = Convert.ToInt64(Convert.ToDouble(valorSinSigno));
-          
-            miSentencia.Parameters.AddWithValue("valTotal",valorSin);
-            miSentencia.Parameters.AddWithValue("idBod","2");
-            if (radioSi.Checked)
-            {
-            miSentencia.Parameters.AddWithValue("estado","RECIBIDO");
-            }
-            else
-            {
-            miSentencia.Parameters.AddWithValue("estado", "SIN RECIBIR");
-            }
-
-            miSentencia.ExecuteNonQuery();
-
-                for (int i = 0; i < tablaPedidoInsumo.Rows.Count; i++)
-                {
-                miSentencia = new MySqlCommand("insertar_detalles_compra_insumo",conexion.crearConexion());
-                miSentencia.CommandType = CommandType.StoredProcedure;
-                miSentencia.Parameters.AddWithValue("idFact",labelNumeroCompra.Text);
-                miSentencia.Parameters.AddWithValue("idInsu", tablaPedidoInsumo.Rows[i].Cells[0].Value);
-                miSentencia.Parameters.AddWithValue("cant",tablaPedidoInsumo.Rows[i].Cells[2].Value);
-                miSentencia.Parameters.AddWithValue("subTo",tablaPedidoInsumo.Rows[i].Cells[4].Value);
-                miSentencia.ExecuteNonQuery();
-                }
+                guardarFacturaCompraInsumo();
 
                 MessageBox.Show("Factura guardada exitosamente");
 
                 limpiarIncrementarFactura();
             }
+        }
+        private void guardarFacturaCompraInsumo()
+        {
+            MySqlCommand miSentencia = new MySqlCommand("insertar_factura_compra", conexion.crearConexion());
+            miSentencia.CommandType = CommandType.StoredProcedure;
+            miSentencia.Parameters.AddWithValue("idProve", cajaCodigoProveedor.Text);
+            miSentencia.Parameters.AddWithValue("idTipoCom", comboTipoCompra.SelectedItem.ToString());
+            miSentencia.Parameters.AddWithValue("fechaCom", Convert.ToDateTime(labelFecha.Text));
+            string valorSinSigno = labelTotal.Text.Substring(1);
+            float valorSin = Convert.ToInt64(Convert.ToDouble(valorSinSigno));
+
+            miSentencia.Parameters.AddWithValue("valTotal", valorSin);
+            miSentencia.Parameters.AddWithValue("idBod", "2");
+            if (radioSi.Checked)
+            {
+                miSentencia.Parameters.AddWithValue("estado", "RECIBIDO");
+            }
+            else
+            {
+                miSentencia.Parameters.AddWithValue("estado", "SIN RECIBIR");
+            }
+
+            miSentencia.ExecuteNonQuery();
+
+            for (int i = 0; i < tablaPedidoInsumo.Rows.Count; i++)
+            {
+                miSentencia = new MySqlCommand("insertar_detalles_compra_insumo", conexion.crearConexion());
+                miSentencia.CommandType = CommandType.StoredProcedure;
+                miSentencia.Parameters.AddWithValue("idFact", labelNumeroCompra.Text);
+                miSentencia.Parameters.AddWithValue("idInsu", tablaPedidoInsumo.Rows[i].Cells[0].Value);
+                miSentencia.Parameters.AddWithValue("cant", tablaPedidoInsumo.Rows[i].Cells[2].Value);
+                miSentencia.Parameters.AddWithValue("subTo", tablaPedidoInsumo.Rows[i].Cells[4].Value);
+                miSentencia.ExecuteNonQuery();
+            }
+
         }
 
         private void limpiarIncrementarFactura()
@@ -359,6 +364,43 @@ namespace sipe
             objRecetas.MdiParent = this.MdiParent;
             objRecetas.Show();
             objRecetas.tabControl1.SelectedIndex = 1;
+        }
+
+        private void btnEliminarProducto_Click(object sender, EventArgs e)
+        {
+            tablaPedidoInsumo.Rows.RemoveAt(tablaPedidoInsumo.CurrentRow.Index);
+        }
+
+        private void tablaPedidoInsumo_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            int acu = 0;
+            for (int i = 0; i < tablaPedidoInsumo.Rows.Count; i++)
+            {
+                acu = acu + Convert.ToInt32(tablaPedidoInsumo.Rows[i].Cells[4].Value);
+            }
+            int iva = (acu * 16) / 100;
+            int subtotal = acu - ((acu * 16) / 100);
+            labelSubtotal.Text = "$ " + subtotal.ToString("N0");
+            labelIva.Text = "$ " + iva.ToString("N0");
+            labelTotal.Text = "$ " + acu.ToString("N0");
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            MySqlCommand miSentencia = new MySqlCommand("eliminar_detalles_factura_insumo",conexion.crearConexion());
+            miSentencia.CommandType = CommandType.StoredProcedure;
+            miSentencia.Parameters.AddWithValue("idFact",cajaCodigoProveedor.Text);
+            miSentencia.ExecuteNonQuery();
+
+            miSentencia = new MySqlCommand("eliminar_factura_compras", conexion.crearConexion());
+            miSentencia.CommandType = CommandType.StoredProcedure;
+            miSentencia.Parameters.AddWithValue("idFact", cajaCodigoProveedor.Text);
+            miSentencia.ExecuteNonQuery();
+
+            guardarFacturaCompraInsumo();
+
+            MessageBox.Show("Factura actualizada exitosamente");
+
         }
     }
 }

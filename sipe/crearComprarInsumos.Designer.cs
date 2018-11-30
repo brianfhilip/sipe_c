@@ -65,6 +65,7 @@
             this.TextObservaciones = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
+            this.btnEliminarProducto = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tablaPedidoInsumo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,35 +98,42 @@
             this.Column5});
             this.tablaPedidoInsumo.Location = new System.Drawing.Point(59, 177);
             this.tablaPedidoInsumo.Name = "tablaPedidoInsumo";
+            this.tablaPedidoInsumo.ReadOnly = true;
             this.tablaPedidoInsumo.Size = new System.Drawing.Size(543, 147);
             this.tablaPedidoInsumo.TabIndex = 2;
             this.tablaPedidoInsumo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.tablaPedidoInsumo.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.tablaPedidoInsumo_RowsAdded);
+            this.tablaPedidoInsumo.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.tablaPedidoInsumo_RowsRemoved);
             // 
             // Column1
             // 
             this.Column1.HeaderText = "Codigo";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Descripcion";
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Cant";
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Precio Unit";
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // Column5
             // 
             this.Column5.HeaderText = "Subtotal";
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // label1
             // 
@@ -253,7 +261,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(62, 344);
+            this.label10.Location = new System.Drawing.Point(57, 367);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(273, 13);
             this.label10.TabIndex = 17;
@@ -262,7 +270,7 @@
             // radioSi
             // 
             this.radioSi.AutoSize = true;
-            this.radioSi.Location = new System.Drawing.Point(341, 340);
+            this.radioSi.Location = new System.Drawing.Point(336, 363);
             this.radioSi.Name = "radioSi";
             this.radioSi.Size = new System.Drawing.Size(34, 17);
             this.radioSi.TabIndex = 18;
@@ -273,7 +281,7 @@
             // radioNo
             // 
             this.radioNo.AutoSize = true;
-            this.radioNo.Location = new System.Drawing.Point(341, 357);
+            this.radioNo.Location = new System.Drawing.Point(336, 380);
             this.radioNo.Name = "radioNo";
             this.radioNo.Size = new System.Drawing.Size(39, 17);
             this.radioNo.TabIndex = 19;
@@ -283,7 +291,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(386, 363);
+            this.btnGuardar.Location = new System.Drawing.Point(381, 386);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(98, 23);
             this.btnGuardar.TabIndex = 20;
@@ -293,7 +301,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(386, 392);
+            this.button3.Location = new System.Drawing.Point(381, 415);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(98, 23);
             this.button3.TabIndex = 21;
@@ -366,7 +374,7 @@
             // 
             // TextObservaciones
             // 
-            this.TextObservaciones.Location = new System.Drawing.Point(65, 377);
+            this.TextObservaciones.Location = new System.Drawing.Point(60, 400);
             this.TextObservaciones.Name = "TextObservaciones";
             this.TextObservaciones.Size = new System.Drawing.Size(240, 62);
             this.TextObservaciones.TabIndex = 29;
@@ -375,7 +383,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(62, 361);
+            this.label6.Location = new System.Drawing.Point(57, 384);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(81, 13);
             this.label6.TabIndex = 30;
@@ -384,18 +392,30 @@
             // btnModificar
             // 
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.Location = new System.Drawing.Point(386, 421);
+            this.btnModificar.Location = new System.Drawing.Point(381, 444);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(98, 23);
             this.btnModificar.TabIndex = 31;
             this.btnModificar.Text = "Guardar Cambios";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // btnEliminarProducto
+            // 
+            this.btnEliminarProducto.Location = new System.Drawing.Point(59, 330);
+            this.btnEliminarProducto.Name = "btnEliminarProducto";
+            this.btnEliminarProducto.Size = new System.Drawing.Size(99, 23);
+            this.btnEliminarProducto.TabIndex = 32;
+            this.btnEliminarProducto.Text = "Eliminar Prod.";
+            this.btnEliminarProducto.UseVisualStyleBackColor = true;
+            this.btnEliminarProducto.Click += new System.EventHandler(this.btnEliminarProducto_Click);
             // 
             // crearComprarInsumos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(664, 451);
+            this.ClientSize = new System.Drawing.Size(663, 484);
+            this.Controls.Add(this.btnEliminarProducto);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.TextObservaciones);
@@ -453,7 +473,6 @@
         private System.Windows.Forms.ComboBox comboTipoCompra;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox cajaBusqueda;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox cajaCantidad;
         private System.Windows.Forms.Label label10;
@@ -476,5 +495,7 @@
         public System.Windows.Forms.Label labelTotal;
         public System.Windows.Forms.RichTextBox TextObservaciones;
         public System.Windows.Forms.Button btnModificar;
+        public System.Windows.Forms.TextBox cajaBusqueda;
+        private System.Windows.Forms.Button btnEliminarProducto;
     }
 }
