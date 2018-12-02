@@ -58,5 +58,12 @@ namespace sipe
             cliente.MdiParent = this.MdiParent;
             cliente.Show();
         }
+       
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Compras compra = new Compras();
+            compra.MdiParent = this.MdiParent;
+            compra.Show();
+        }
     }
 }
