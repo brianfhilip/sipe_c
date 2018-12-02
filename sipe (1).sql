@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-11-2018 a las 23:39:36
+-- Tiempo de generación: 28-11-2018 a las 22:55:25
 -- Versión del servidor: 10.1.34-MariaDB
 -- Versión de PHP: 7.2.7
 
@@ -105,7 +105,18 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `autoCompletarProductoVenta` ()  sel
 CREATE DEFINER=`root`@`localhost` PROCEDURE `autocompletar_nombre_productos_marca` ()  SELECT NombreProductoMarca from productos_marcas$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `autocompletar_productos` (IN `busq` VARCHAR(60))  NO SQL
-SELECT concat(idInsumo,"-",nombreInsumo) FROM insumos WHERE idInsumo like concat("%",busq,"%") OR nombreInsumo like concat("%",busq,"%")$$
+BEGIN
+
+
+
+IF strcmp(busq,"")=0 THEN
+SELECT "sin resultados";
+ELSE
+
+SELECT concat(idInsumo,"-",nombreInsumo) FROM insumos WHERE idInsumo like concat("%",busq,"%") OR nombreInsumo like concat("%",busq,"%");
+END IF;
+
+END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `buscarCliente` (IN `id` VARCHAR(15))  BEGIN
 
@@ -260,7 +271,15 @@ UPDATE productos_marcas SET cantidadExitencia=cantidadExitencia-cant WHERE idPro
 
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insertar_factura_compra` (IN `idProve` VARCHAR(15), IN `idTipoCom` VARCHAR(15), IN `fechaCom` DATE, IN `valTotal` FLOAT(11), IN `idBod` VARCHAR(20), IN `estado` VARCHAR(20))  INSERT INTO facturas_de_compras (idFacturaCompra,idProveedor,idTipoCompra,fechaCompra,valorTotal,idBodega, estadoMercancia) VALUES(null,idProve,idTipoCom,fechaCom,valTotal,idBod, estado)$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insertar_factura_compra` (IN `idProve` VARCHAR(15), IN `idTipoCom` VARCHAR(15), IN `fechaCom` DATE, IN `valTotal` FLOAT(11), IN `idBod` VARCHAR(20), IN `estado` VARCHAR(20))  BEGIN
+
+DECLARE _idTipoCompra varchar(20) DEFAULT "";
+
+SELECT idTipoCompra into _idTipoCompra FROM tipos_de_compras WHERE nombreTipoCompra=idTipoCom;
+
+INSERT INTO facturas_de_compras (idFacturaCompra,idProveedor,idTipoCompra,fechaCompra,valorTotal,idBodega, estadoMercancia) VALUES(null,idProve,_idTipoCompra,fechaCom,valTotal,idBod, estado);
+
+END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `insertar_guardar_compra` (IN `idProve` VARCHAR(15), IN `idTipoCom` VARCHAR(15), IN `fechaCom` VARCHAR(15), IN `valTotal` DATE, IN `idBod` VARCHAR(20), IN `uso` VARCHAR(6), IN `idFac` VARCHAR(20))  INSERT INTO guardar_facturas(idFacturaGuardada,idCliente,idVendedor,idTipoDePago,fechaVenta,valorVenta,EnUso) VALUES(idFac,idProve,idTipoCom,fechaCom,valTotal,idBod,uso)$$
 
@@ -1073,7 +1092,8 @@ INSERT INTO `facturas_de_compras` (`idFacturaCompra`, `idProveedor`, `idTipoComp
 (193, '22052', '1', '2018-10-15', 5000, '1', 'compra'),
 (194, '22052', '1', '2018-10-15', 5000, '1', 'compra'),
 (195, '31032', '1', '2018-10-15', 7500, '1', 'compra'),
-(196, '45789', '1', '2018-10-15', 4000, '1', 'compra');
+(196, '45789', '1', '2018-10-15', 4000, '1', 'compra'),
+(198, '22052', '1', '2018-11-28', 1000, '2', 'RECIBIDO');
 
 -- --------------------------------------------------------
 
@@ -1240,11 +1260,12 @@ CREATE TABLE `insumos` (
 --
 
 INSERT INTO `insumos` (`idInsumo`, `nombreInsumo`, `costoInsumo`, `cantidadInsumo`, `cantidadMinimaInsumo`, `idTipoCantidad`, `facturarInsumo`, `descripcionInsumo`) VALUES
-('0101', 'Arracachita', 1000, 2, 0, '1', 'SI', ''),
+('0101', 'ARRACACHA', 1000, 2, 0, '1', 'SI', ''),
+('0123', 'POLLO ', 2700, 30, 1, '2', 'SI', NULL),
 ('1101', 'SALSA DE TOMATE', 2000, 200, 5, '2', 'NO', ''),
 ('1102', 'SAL', 1300, 631, 2000, '2', 'SI', 'SALas'),
 ('1103', 'CARNE', 7000, 18, 2000, '2', 'SI', 'CARNE'),
-('1104', 'Leche', 1850.32, 614, 2, '1', 'NO', ''),
+('1104', 'LECHE', 1850.32, 614, 2, '1', 'NO', ''),
 ('1105', 'TOMATE', 200, 107, 2000, '2', 'SI', 'TOMATE'),
 ('1106', 'PEP', 800, 2041, 2000, '2', 'SI', 'PEPIN'),
 ('1107', 'CEBOLLA ', 1000, 589, 2000, '2', 'SI', 'CEBOLLA'),
@@ -1253,7 +1274,9 @@ INSERT INTO `insumos` (`idInsumo`, `nombreInsumo`, `costoInsumo`, `cantidadInsum
 ('1110', 'MASA', 800, 2136, 2000, '1', 'SI', 'MASA'),
 ('1111', 'TOMATE', 500, 0, 2, '1', '', 'TOMATE'),
 ('12345', 'AREPA YUCA ', 2000, 15, 0, '2', 'NO', 'SDFSSSDF'),
-('34', 'Arroz', 1200, 34, 0, '1', 'NO', '');
+('2232', 'LECHUGA', 800, 10, 2, '1', '', ''),
+('34', 'ARROZ', 1200, 34, 0, '1', 'NO', ''),
+('6162', 'ZANAHORIA', 400, 9, 3, '1', '', '');
 
 -- --------------------------------------------------------
 
@@ -2886,7 +2909,7 @@ ALTER TABLE `detalles_ventas`
 -- AUTO_INCREMENT de la tabla `facturas_de_compras`
 --
 ALTER TABLE `facturas_de_compras`
-  MODIFY `idFacturaCompra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=197;
+  MODIFY `idFacturaCompra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=199;
 
 --
 -- AUTO_INCREMENT de la tabla `factura_ventas`

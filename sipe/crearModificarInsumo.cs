@@ -24,11 +24,11 @@ namespace sipe
             
             MySqlCommand miSentencia = new MySqlCommand("insertar_insumo", conexion.crearConexion());
             miSentencia.CommandType = CommandType.StoredProcedure;
-            miSentencia.Parameters.AddWithValue("id", cajaCodigo.Text);
-            miSentencia.Parameters.AddWithValue("nombre", cajaNombre.Text);
-            miSentencia.Parameters.AddWithValue("costo", float.Parse(cajaCosto.Text));
-            miSentencia.Parameters.AddWithValue("cantidad", float.Parse(cajaCantidad.Text));
-            miSentencia.Parameters.AddWithValue("stock", int.Parse(cajaStock.Text));
+            miSentencia.Parameters.AddWithValue("id", cajaCodigo.Text.ToUpper());
+            miSentencia.Parameters.AddWithValue("nombre", cajaNombre.Text.ToUpper());
+            miSentencia.Parameters.AddWithValue("costo", float.Parse(cajaCosto.Text.ToUpper()));
+            miSentencia.Parameters.AddWithValue("cantidad", float.Parse(cajaCantidad.Text.ToUpper()));
+            miSentencia.Parameters.AddWithValue("stock", int.Parse(cajaStock.Text.ToUpper()));
                 MySqlCommand miSentencia2 = new MySqlCommand("select idTipoCantidad from tipos_de_cantidades where nombreTipoCantidad='" + comboMedida.SelectedItem + "'", conexion.crearConexion());
                 MySqlDataReader reader = miSentencia2.ExecuteReader();
 
