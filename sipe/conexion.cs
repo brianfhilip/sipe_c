@@ -14,7 +14,7 @@ namespace sipe
                  "Initial Catalog=AdventureWorks;Integrated Security=SSPI;" +
                 "MultipleActiveResultSets=True";*/
             MySqlConnection miConexion =new  MySqlConnection("server=127.0.0.1;database=sipe;user=root;pwd=;");//no srve ? pille este codigo en el procedure
-            miConexion.Open();
+           miConexion.Open();
             return miConexion;
         }
     }   //esta como rapida jajaj espere

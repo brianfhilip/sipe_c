@@ -13,6 +13,8 @@ namespace sipe
 {
     public partial class Compras : Form
     {
+
+        public int i = 0;
         public Compras()
         {
             InitializeComponent();
@@ -164,5 +166,28 @@ namespace sipe
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+
+
+        {
+           
+            MessageBox.Show(""+i);
+
+            
+            this.tabla1.Rows.Add();
+
+            tabla1.Rows[i].Cells[0].Value = nombre.SelectedItem;
+            tabla1.Rows[i].Cells[1].Value = proveedor.SelectedItem;
+            tabla1.Rows[i].Cells[2].Value = caja1.Text;
+            tabla1.Rows[i].Cells[3].Value = caja2.Text;
+
+            tabla1.Rows[i].Cells[4].Value = tipo.SelectedItem;
+            tabla1.Rows[i].Cells[5].Value = cantidad.SelectedItem;
+            tabla1.Rows[i].Cells[6].Value = destino.SelectedItem;
+            tabla1.Rows[i].Cells[7].Value = caja3.Text;
+            i = i + 1;
+
+
+        }
     }
 }

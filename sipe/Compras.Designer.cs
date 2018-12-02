@@ -37,8 +37,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.caja1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.caja2 = new System.Windows.Forms.TextBox();
+            this.caja3 = new System.Windows.Forms.TextBox();
             this.proveedor = new System.Windows.Forms.ComboBox();
             this.nombre = new System.Windows.Forms.ComboBox();
             this.cantidad = new System.Windows.Forms.ComboBox();
@@ -46,7 +46,7 @@
             this.tipo = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tabla1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,7 +55,7 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabla1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -137,19 +137,19 @@
             this.caja1.Size = new System.Drawing.Size(132, 20);
             this.caja1.TabIndex = 8;
             // 
-            // textBox2
+            // caja2
             // 
-            this.textBox2.Location = new System.Drawing.Point(779, 10);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(126, 20);
-            this.textBox2.TabIndex = 9;
+            this.caja2.Location = new System.Drawing.Point(779, 10);
+            this.caja2.Name = "caja2";
+            this.caja2.Size = new System.Drawing.Size(126, 20);
+            this.caja2.TabIndex = 9;
             // 
-            // textBox3
+            // caja3
             // 
-            this.textBox3.Location = new System.Drawing.Point(399, 116);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(121, 20);
-            this.textBox3.TabIndex = 10;
+            this.caja3.Location = new System.Drawing.Point(399, 116);
+            this.caja3.Name = "caja3";
+            this.caja3.Size = new System.Drawing.Size(121, 20);
+            this.caja3.TabIndex = 10;
             // 
             // proveedor
             // 
@@ -199,6 +199,7 @@
             this.button1.TabIndex = 16;
             this.button1.Text = "Agregar Compra";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -209,10 +210,10 @@
             this.button2.Text = "Nuevo Producto";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // tabla1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tabla1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tabla1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
@@ -221,10 +222,10 @@
             this.Column6,
             this.Column7,
             this.Column8});
-            this.dataGridView1.Location = new System.Drawing.Point(47, 211);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(845, 175);
-            this.dataGridView1.TabIndex = 18;
+            this.tabla1.Location = new System.Drawing.Point(47, 211);
+            this.tabla1.Name = "tabla1";
+            this.tabla1.Size = new System.Drawing.Size(845, 175);
+            this.tabla1.TabIndex = 18;
             // 
             // Column1
             // 
@@ -271,7 +272,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(950, 416);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.tabla1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tipo);
@@ -279,8 +280,8 @@
             this.Controls.Add(this.cantidad);
             this.Controls.Add(this.nombre);
             this.Controls.Add(this.proveedor);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.caja3);
+            this.Controls.Add(this.caja2);
             this.Controls.Add(this.caja1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -293,7 +294,7 @@
             this.Name = "Compras";
             this.Text = "Compras";
             this.Load += new System.EventHandler(this.Compras_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabla1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -310,8 +311,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox caja1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox caja2;
+        private System.Windows.Forms.TextBox caja3;
         private System.Windows.Forms.ComboBox proveedor;
         private System.Windows.Forms.ComboBox nombre;
         private System.Windows.Forms.ComboBox cantidad;
@@ -319,7 +320,7 @@
         private System.Windows.Forms.ComboBox tipo;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView tabla1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
