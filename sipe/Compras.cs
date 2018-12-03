@@ -171,7 +171,7 @@ namespace sipe
 
         {
            
-            MessageBox.Show(""+i);
+           
 
             
             this.tabla1.Rows.Add();
@@ -188,6 +188,17 @@ namespace sipe
             i = i + 1;
 
 
+            MySqlCommand comando6 = new MySqlCommand("agregarcompra",conexion.crearConexion());
+            comando6.CommandType = CommandType.StoredProcedure;
+            comando6.Parameters.AddWithValue("prov", proveedor.SelectedItem);
+            comando6.Parameters.AddWithValue("tipo", tipo.SelectedItem);
+            comando6.Parameters.AddWithValue("valor",caja2.Text);
+            comando6.Parameters.AddWithValue("idfactura",caja1.Text);
+            comando6.Parameters.AddWithValue("nombre",nombre.SelectedItem);
+            comando6.Parameters.AddWithValue("tipoCan",cantidad.SelectedItem);
+            comando6.Parameters.AddWithValue("cantidad",caja3.Text);
+
+            comando6.ExecuteScalar();
         }
     }
 }
